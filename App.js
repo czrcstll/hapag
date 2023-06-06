@@ -1,20 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import {
+  View,
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  NavigationContainer
+} from 'react-native';
+import SignInScreen from './src/screens/SignInScreen';
+import GettingStartedScreen from './src/screens/GettingStartedScreen';
+import EnterHealthDetailsScreen from './src/screens/EnterHealthDetailsScreen';
+import LoginScreen from './src/screens/LoginScreen';
+import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
+import PhysicalFactorScreen from './src/screens/PhysicalFactorScreen';
+import ComorbiditiesScreen from './src/screens/ComorbiditiesScreen';
+import AllergensScreen from './src/screens/AllergensScreen';
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <SafeAreaView style = {styles.wrapper}>
+      <SignInScreen/>
+    </SafeAreaView>
+    )
 }
-
+//For styling the components
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#F7F7F7',
+    flex: 1
   },
+
+  wrapper: {
+    flex: 1
+  },
+
+  
 });
+
+export default App 
