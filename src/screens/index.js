@@ -6,3 +6,4 @@ export { EnterHealthDetailsScreen } from './EnterHealthDetailsScreen';
 export { PhysicalFactorScreen } from './PhysicalFactorScreen';
 export { ComorbiditiesScreen } from './ComorbiditiesScreen';
 export { AllergensScreen } from './AllergensScreen';
+export { ConfirmEmailScreen } from './ConfirmEmailScreen';

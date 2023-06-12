@@ -15,6 +15,7 @@ const SignUpScreen = () => {
   const {email, setEmail} = useState('');
   const {phone, setPhone} = useState('');
   const {password, setPassword} = useState('');
+  const {repeatPassword, setRepeatPassword} = useState('');
 
   const {height} = useWindowDimensions();
 
@@ -37,6 +38,7 @@ const SignUpScreen = () => {
         <CustomInput placeholder = "Email" value = {email} setValue = {setEmail}/>
         <CustomInput placeholder = "Phone Number" value = {phone} setValue = {setPhone}/>
         <CustomInput placeholder = "Password" value = {password} setValue = {setPassword} secureTextEntry = {true}/>
+        <CustomInput placeholder = "Retype Password" value = {repeatPassword} setValue = {setRepeatPassword} secureTextEntry = {true}/>
         <View style = {styles.buttonWrapper}>
         <CustomButton text = "Sign up later" onPress = {onSignInPressed} type = "SECONDARY"/>
         <CustomButton text = "Next" onPress = {onSignInPressed}/>
@@ -52,20 +54,20 @@ const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
     padding: 30,
-    marginTop: 60
+    marginTop: '10%'
   },
 
   headerText: {
     fontSize: 24,
     color: '#44AF69',
-    marginBottom: 12,
+    marginBottom: 10,
   },
 
   subHeadingText: {
     fontSize: 18,
     color: '#8E8EA9',
     textAlign: 'center',
-    marginBottom: 50,
+    marginBottom: '10%',
   },
 
   textButton: {
@@ -76,7 +78,7 @@ const styles = StyleSheet.create({
   },
 
   buttonWrapper: {
-    marginTop: '25%'
+    marginTop: '20%'
   }
   
 });
