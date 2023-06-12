@@ -6,7 +6,7 @@ import {
   StyleSheet,
   NavigationContainer
 } from 'react-native';
-import SignInScreen from './src/screens/SignInScreen';
+import SignInScreen from './src/screens/SignUpScreen';
 import GettingStartedScreen from './src/screens/GettingStartedScreen';
 import EnterHealthDetailsScreen from './src/screens/EnterHealthDetailsScreen';
 import LoginScreen from './src/screens/LoginScreen';
@@ -17,18 +17,10 @@ import AllergensScreen from './src/screens/AllergensScreen';
 
 const App = () => {
   return (
-<<<<<<< HEAD
     <SafeAreaView style = {styles.wrapper}>
-      <SignInScreen/>
+      <SignUpScreen/>
     </SafeAreaView>
     )
-=======
-    <View style={styles.container}>
-      <Text>Royce is here</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
->>>>>>> e6e6b958e7a6907a8bddb12c10c65e9c74348fb1
 }
 //For styling the components
 const styles = StyleSheet.create({

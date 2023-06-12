@@ -10,7 +10,7 @@ import {
  import CustomInput from '../components/CustomInput/CustomInput';
  import CustomButton from '../components/CustomButton/CustomButton';
 
-const SignInScreen = () => {
+const SignUpScreen = () => {
   const {username, setUsername} = useState('');
   const {email, setEmail} = useState('');
   const {phone, setPhone} = useState('');
@@ -82,4 +82,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default SignInScreen
+export default SignUpScreen
