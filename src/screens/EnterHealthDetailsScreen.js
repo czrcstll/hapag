@@ -10,7 +10,7 @@ import {
 import CustomInput from '../components/CustomInput/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 
-const EnterHealthDetailsScreen = () => {
+const EnterHealthDetailsScreen = ({ navigation }) => {
   const { age, setAge } = useState('');
 
   const { sex, setSex } = useState('');
@@ -20,17 +20,14 @@ const EnterHealthDetailsScreen = () => {
   const { height, setHeight } = useState('');
   const { weight, setWeight } = useState('');
 
-
-  const onSignInPressed = () => {
-    console.warn('Sign in');
+  const goToNextScreen = () => {
+    navigation.navigate('PhysicalFactor');
   }
 
-  /*
-  //put in login page
-  const onForgotPasswordPressed = () => {
-    console.warn{'onForgotPasswordPressed'};
+  const goToLogin = () => {
+    navigation.navigate('Login');
   }
-*/
+
   return (
     <SafeAreaView>
       <View style={styles.root}>
@@ -47,9 +44,8 @@ const EnterHealthDetailsScreen = () => {
           <CustomInput placeholder="Weight(kg)" value={weight} setValue={setWeight} />
         </View>
 
-
-        <CustomButton text="Sign up later" onPress={onSignInPressed} type="SECONDARY" />
-        <CustomButton text="Next" onPress={onSignInPressed} />
+        <CustomButton text="Sign up later" onPress={goToLogin} type="SECONDARY" />
+        <CustomButton text="Next" onPress={goToNextScreen} />
 
       </View>
     </SafeAreaView>

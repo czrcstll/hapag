@@ -10,22 +10,20 @@ import {
 import CustomInput from '../components/CustomInput/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 
-const ForgotPasswordScreen = () => {
+const ForgotPasswordScreen = ({ navigation }) => {
   const { email, setEmail } = useState('');
   const { password, setPassword } = useState('');
 
   const { height } = useWindowDimensions();
 
-  const onSignInPressed = () => {
-    console.warn('Sign in');
+  const handleForgotPassword = () => {
+
   }
 
-  /*
-  //put in login page
-  const onForgotPasswordPressed = () => {
-    console.warn{'onForgotPasswordPressed'};
+  const goBack = () => {
+    navigation.goBack();
   }
-*/
+
   return (
     <SafeAreaView>
       <View style={styles.root}>
@@ -34,8 +32,8 @@ const ForgotPasswordScreen = () => {
         <CustomInput placeholder="Email" value={email} setValue={setEmail} />
         <Text style={styles.feedbackText}>We will email you a link to reset your password</Text>
         <View style={styles.buttonWrapper}>
-          <CustomButton text="Back" onPress={onSignInPressed} type="SECONDARY" />
-          <CustomButton text="Send" onPress={onSignInPressed} />
+          <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
+          <CustomButton text="Send" onPress={handleForgotPassword} />
         </View>
 
       </View>

@@ -10,36 +10,34 @@ import {
 import CustomInput from '../components/CustomInput/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 
-const PhysicalFactorScreen = () => {
-  const { username, setUsername } = useState('');
-  const { email, setEmail } = useState('');
-  const { password, setPassword } = useState('');
+const PhysicalFactorScreen = ({ navigation }) => {
 
   const { height } = useWindowDimensions();
 
-  const onSignInPressed = () => {
-    console.warn('Sign in');
+  const goToNextScreen = () => {
+    navigation.navigate('Comorbidities');
   }
 
-  /*
-  //put in login page
-  const onForgotPasswordPressed = () => {
-    console.warn{'onForgotPasswordPressed'};
+  const goBack = () => {
+    navigation.goBack();
   }
-*/
+
+  const temp = () => {
+  }
+
   return (
     <SafeAreaView>
       <View style={styles.root}>
         <Text style={styles.headerText}>How active are you?</Text>
         <Text style={styles.subHeadingText}>Select your activity level to get recommendations tailored to your lifestyle</Text>
-        <CustomButton text="Sedentary" onPress={onSignInPressed} type="SECONDARY" />
-        <CustomButton text="Light" onPress={onSignInPressed} type="SECONDARY" />
-        <CustomButton text="Moderate" onPress={onSignInPressed} type="SECONDARY" />
-        <CustomButton text="Vigorous" onPress={onSignInPressed} type="SECONDARY" />
+        <CustomButton text="Sedentary" onPress={temp} type="SECONDARY" />
+        <CustomButton text="Light" onPress={temp} type="SECONDARY" />
+        <CustomButton text="Moderate" onPress={temp} type="SECONDARY" />
+        <CustomButton text="Vigorous" onPress={temp} type="SECONDARY" />
 
         <View style={styles.buttonWrapper}>
-          <CustomButton text="Back" onPress={onSignInPressed} type="SECONDARY" />
-          <CustomButton text="Next" onPress={onSignInPressed} />
+          <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
+          <CustomButton text="Next" onPress={goToNextScreen} />
         </View>
 
       </View>

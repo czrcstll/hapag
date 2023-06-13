@@ -10,18 +10,19 @@ import {
 import CustomInput from '../components/CustomInput/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 
-const ComorbiditiesScreen = () => {
+const ComorbiditiesScreen = ({ navigation }) => {
 
-  const onSignInPressed = () => {
-    console.warn('Sign in');
+  const goToNextScreen = () => {
+    navigation.navigate('Allergens');
   }
 
-  /*
-  //put in login page
-  const onForgotPasswordPressed = () => {
-    console.warn{'onForgotPasswordPressed'};
+  const goBack = () => {
+    navigation.goBack();
   }
-*/
+
+  const temp = () => {
+  }
+
   return (
     <SafeAreaView>
       <View style={styles.root}>
@@ -29,18 +30,18 @@ const ComorbiditiesScreen = () => {
         <Text style={styles.subHeadingText}>Let us tailor your food choices according to your conditions</Text>
 
         <Text style={styles.subHeadingText}>Select all that applies</Text>
-        <CustomButton text="Cancer" onPress={onSignInPressed} type="TERTIARY" />
-        <CustomButton text="Chronic Lung Disease" onPress={onSignInPressed} type="TERTIARY" />
-        <CustomButton text="Hypertension" onPress={onSignInPressed} type="TERTIARY" />
-        <CustomButton text="Heart Disease" onPress={onSignInPressed} type="TERTIARY" />
-        <CustomButton text="Chronic Kidney Disease" onPress={onSignInPressed} type="TERTIARY" />
+        <CustomButton text="Cancer" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Chronic Lung Disease" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Hypertension" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Heart Disease" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Chronic Kidney Disease" onPress={temp} type="TERTIARY" />
 
-        <CustomButton text="Diabetes" onPress={onSignInPressed} type="TERTIARY" />
+        <CustomButton text="Diabetes" onPress={temp} type="TERTIARY" />
 
 
         <View style={styles.buttonWrapper}>
-          <CustomButton text="Back" onPress={onSignInPressed} type="SECONDARY" />
-          <CustomButton text="Next" onPress={onSignInPressed} />
+          <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
+          <CustomButton text="Next" onPress={goToNextScreen} />
         </View>
 
       </View>

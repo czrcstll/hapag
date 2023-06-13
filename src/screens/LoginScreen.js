@@ -10,23 +10,25 @@ import {
 import CustomInput from '../components/CustomInput/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const { username, setUsername } = useState('');
   const { email, setEmail } = useState('');
   const { password, setPassword } = useState('');
 
   const { height } = useWindowDimensions();
 
-  const onSignInPressed = () => {
-    console.warn('Sign in');
+  const handleLogin = () => {
+    console.warn('Login');
   }
 
-  /*
-  //put in login page
-  const onForgotPasswordPressed = () => {
-    console.warn{'onForgotPasswordPressed'};
+  const onPressSignIn = () => {
+    navigation.navigate('GettingStarted');
   }
-*/
+
+  const onPressForgot = () => {
+    navigation.navigate('ForgotPassword');
+  }
+
   return (
     <SafeAreaView>
       <View style={styles.root}>
@@ -34,10 +36,10 @@ const LoginScreen = () => {
         <Text style={styles.subHeadingText}>Sign In to Access Your Personalized Meal Plan and Delivery Options</Text>
         <CustomInput placeholder="Email" value={email} setValue={setEmail} />
         <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
-        <CustomButton text="Forgot your password?" onPress={onSignInPressed} type="SECONDARY" />
+        <CustomButton text="Forgot your password?" onPress={onPressForgot} type="SECONDARY" />
         <View style={styles.buttonWrapper}>
-          <CustomButton text="Sign up" onPress={onSignInPressed} type="SECONDARY" />
-          <CustomButton text="Login" onPress={onSignInPressed} />
+          <CustomButton text="Sign up" onPress={onPressSignIn} type="SECONDARY" />
+          <CustomButton text="Login" onPress={handleLogin} />
         </View>
 
       </View>

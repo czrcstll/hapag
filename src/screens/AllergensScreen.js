@@ -10,18 +10,19 @@ import {
 import CustomInput from '../components/CustomInput/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 
-const AllergensScreen = () => {
+const AllergensScreen = ({ navigation }) => {
 
-  const onSignInPressed = () => {
-    console.warn('Sign in');
+  const goToNextScreen = () => {
+    // navigation.navigate('Allergens');
   }
 
-  /*
-  //put in login page
-  const onForgotPasswordPressed = () => {
-    console.warn{'onForgotPasswordPressed'};
+  const goBack = () => {
+    navigation.goBack();
   }
-*/
+
+  const temp = () => {
+  }
+
   return (
     <SafeAreaView>
       <View style={styles.root}>
@@ -29,17 +30,16 @@ const AllergensScreen = () => {
         <Text style={styles.subHeadingText}>Let us tailor your food choices according to your conditions</Text>
 
         <Text style={styles.subHeadingText}>Select all that applies</Text>
-        <CustomButton text="Egg" onPress={onSignInPressed} type="TERTIARY" />
-        <CustomButton text="Nuts" onPress={onSignInPressed} type="TERTIARY" />
-        <CustomButton text="Gluten" onPress={onSignInPressed} type="TERTIARY" />
-        <CustomButton text="Milk" onPress={onSignInPressed} type="TERTIARY" />
-        <CustomButton text="Soy" onPress={onSignInPressed} type="TERTIARY" />
-        <CustomButton text="Shellfish" onPress={onSignInPressed} type="TERTIARY" />
-
+        <CustomButton text="Egg" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Nuts" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Gluten" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Milk" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Soy" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Shellfish" onPress={temp} type="TERTIARY" />
 
         <View style={styles.buttonWrapper}>
-          <CustomButton text="Back" onPress={onSignInPressed} type="SECONDARY" />
-          <CustomButton text="Next" onPress={onSignInPressed} />
+          <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
+          <CustomButton text="Next" onPress={goToNextScreen} />
         </View>
 
       </View>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     marginTop: 5
   }
-  
+
 });
 
 export default AllergensScreen;

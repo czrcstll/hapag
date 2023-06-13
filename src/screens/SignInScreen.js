@@ -10,7 +10,7 @@ import {
 import CustomInput from '../components/CustomInput/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
 
-const SignInScreen = () => {
+const SignInScreen = ({ navigation }) => {
   const { username, setUsername } = useState('');
   const { email, setEmail } = useState('');
   const { phone, setPhone } = useState('');
@@ -18,16 +18,14 @@ const SignInScreen = () => {
 
   const { height } = useWindowDimensions();
 
-  const onSignInPressed = () => {
-    console.warn('Sign in');
+  const goToNextScreen = () => {
+    navigation.navigate('EnterHealthDetails');
   }
 
-  /*
-  //put in login page
-  const onForgotPasswordPressed = () => {
-    console.warn{'onForgotPasswordPressed'};
+  const goBack = () => {
+    navigation.goBack();
   }
-*/
+
   return (
     <SafeAreaView>
       <View style={styles.root}>
@@ -38,8 +36,8 @@ const SignInScreen = () => {
         <CustomInput placeholder="Phone Number" value={phone} setValue={setPhone} />
         <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
         <View style={styles.buttonWrapper}>
-          <CustomButton text="Sign up later" onPress={onSignInPressed} type="SECONDARY" />
-          <CustomButton text="Next" onPress={onSignInPressed} />
+          <CustomButton text="Sign up later" onPress={goBack} type="SECONDARY" />
+          <CustomButton text="Next" onPress={goToNextScreen} />
         </View>
 
       </View>
