@@ -1,23 +1,23 @@
-import React, {useState} from 'react';
-import { 
-  View, 
+import React, { useState } from 'react';
+import {
+  View,
   Text,
   Image,
   StyleSheet,
   SafeAreaView,
   useWindowDimensions
- } from 'react-native';
- import CustomInput from '../components/CustomInput/CustomInput';
- import CustomButton from '../components/CustomButton/CustomButton';
+} from 'react-native';
+import CustomInput from '../components/CustomInput/CustomInput';
+import CustomButton from '../components/CustomButton/CustomButton';
 
 const LoginScreen = () => {
-  const {username, setUsername} = useState('');
-  const {email, setEmail} = useState('');
-  const {password, setPassword} = useState('');
+  const { username, setUsername } = useState('');
+  const { email, setEmail } = useState('');
+  const { password, setPassword } = useState('');
 
-  const {height} = useWindowDimensions();
+  const { height } = useWindowDimensions();
 
-  const onSignInPressed = () =>{
+  const onSignInPressed = () => {
     console.warn('Sign in');
   }
 
@@ -29,15 +29,15 @@ const LoginScreen = () => {
 */
   return (
     <SafeAreaView>
-      <View style = {styles.root}>
-      <Text style = {styles.headerText}>Login</Text>
-        <Text style = {styles.subHeadingText}>Sign In to Access Your Personalized Meal Plan and Delivery Options</Text>
-        <CustomInput placeholder = "Email" value = {email} setValue = {setEmail}/>
-        <CustomInput placeholder = "Password" value = {password} setValue = {setPassword} secureTextEntry = {true}/>
-        <CustomButton text = "Forgot your password?" onPress = {onSignInPressed} type = "SECONDARY"/>
-        <View style = {styles.buttonWrapper}>
-        <CustomButton text = "Sign up" onPress = {onSignInPressed} type = "SECONDARY"/>
-        <CustomButton text = "Login" onPress = {onSignInPressed}/>
+      <View style={styles.root}>
+        <Text style={styles.headerText}>Login</Text>
+        <Text style={styles.subHeadingText}>Sign In to Access Your Personalized Meal Plan and Delivery Options</Text>
+        <CustomInput placeholder="Email" value={email} setValue={setEmail} />
+        <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
+        <CustomButton text="Forgot your password?" onPress={onSignInPressed} type="SECONDARY" />
+        <View style={styles.buttonWrapper}>
+          <CustomButton text="Sign up" onPress={onSignInPressed} type="SECONDARY" />
+          <CustomButton text="Login" onPress={onSignInPressed} />
         </View>
 
       </View>
@@ -76,8 +76,7 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     marginTop: '25%'
   }
-  
+
 });
 
-
-export default LoginScreen
+export default LoginScreen;

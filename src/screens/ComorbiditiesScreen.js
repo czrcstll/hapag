@@ -1,19 +1,18 @@
-import React, {useState} from 'react';
-import { 
-  View, 
+import React, { useState } from 'react';
+import {
+  View,
   Text,
   Image,
   StyleSheet,
   SafeAreaView,
   useWindowDimensions
- } from 'react-native';
- import CustomInput from '../components/CustomInput/CustomInput';
- import CustomButton from '../components/CustomButton/CustomButton';
+} from 'react-native';
+import CustomInput from '../components/CustomInput/CustomInput';
+import CustomButton from '../components/CustomButton/CustomButton';
 
 const ComorbiditiesScreen = () => {
 
-
-  const onSignInPressed = () =>{
+  const onSignInPressed = () => {
     console.warn('Sign in');
   }
 
@@ -25,23 +24,23 @@ const ComorbiditiesScreen = () => {
 */
   return (
     <SafeAreaView>
-      <View style = {styles.root}>
-      <Text style = {styles.headerText}>Do you have any existing comorbidity?</Text>
-        <Text style = {styles.subHeadingText}>Let us tailor your food choices according to your conditions</Text>
+      <View style={styles.root}>
+        <Text style={styles.headerText}>Do you have any existing comorbidity?</Text>
+        <Text style={styles.subHeadingText}>Let us tailor your food choices according to your conditions</Text>
 
-        <Text style = {styles.subHeadingText}>Select all that applies</Text>
-        <CustomButton text = "Cancer" onPress = {onSignInPressed} type = "TERTIARY"/>
-        <CustomButton text = "Chronic Lung Disease" onPress = {onSignInPressed} type = "TERTIARY"/>
-        <CustomButton text = "Hypertension" onPress = {onSignInPressed} type = "TERTIARY"/>
-        <CustomButton text = "Heart Disease" onPress = {onSignInPressed} type = "TERTIARY"/>
-        <CustomButton text = "Chronic Kidney Disease" onPress = {onSignInPressed} type = "TERTIARY"/>
+        <Text style={styles.subHeadingText}>Select all that applies</Text>
+        <CustomButton text="Cancer" onPress={onSignInPressed} type="TERTIARY" />
+        <CustomButton text="Chronic Lung Disease" onPress={onSignInPressed} type="TERTIARY" />
+        <CustomButton text="Hypertension" onPress={onSignInPressed} type="TERTIARY" />
+        <CustomButton text="Heart Disease" onPress={onSignInPressed} type="TERTIARY" />
+        <CustomButton text="Chronic Kidney Disease" onPress={onSignInPressed} type="TERTIARY" />
 
-        <CustomButton text = "Diabetes" onPress = {onSignInPressed} type = "TERTIARY"/>
+        <CustomButton text="Diabetes" onPress={onSignInPressed} type="TERTIARY" />
 
 
-        <View style = {styles.buttonWrapper}>
-        <CustomButton text = "Back" onPress = {onSignInPressed} type = "SECONDARY"/>
-        <CustomButton text = "Next" onPress = {onSignInPressed}/>
+        <View style={styles.buttonWrapper}>
+          <CustomButton text="Back" onPress={onSignInPressed} type="SECONDARY" />
+          <CustomButton text="Next" onPress={onSignInPressed} />
         </View>
 
       </View>
@@ -81,8 +80,7 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     marginTop: 5
   }
-  
+
 });
 
-
-export default ComorbiditiesScreen
+export default ComorbiditiesScreen;
