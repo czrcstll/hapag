@@ -11,21 +11,22 @@ import {
  import CustomButton from '../components/CustomButton/CustomButton';
 
 const GettingStartedScreen = () => {
-    const onSignInPressed = () =>{
-        console.warn('Sign in');
+    const onGetStartedPressed = () =>{
+        Navigation.navigate('SignUp');
       }
+
   return (
     <SafeAreaView>
         <View style = {styles.root}>
         <Text style = {styles.headerText}>Let's get started</Text>
         <Text style = {styles.subHeadingText}>Create Your Account and Start Planning Delicious Meals with Easy Delivery Options</Text>
 
-        <CustomButton text = "Get Started" onPress = {onSignInPressed}/>
+        <CustomButton text = "Get Started" onPress = {onGetStartedPressed}/>
         <Text style = {styles.subHeadingText}>OR</Text>
-        <CustomButton text = "Continue with Apple" onPress = {onSignInPressed} type = "TERTIARY"/>
-        <CustomButton text = "Continue with Facebook" onPress = {onSignInPressed} type = "TERTIARY"/>
-        <CustomButton text = "Continue with Gmail" onPress = {onSignInPressed} type = "TERTIARY"/>
-        <CustomButton text = "Sign up later" onPress = {onSignInPressed} type = "SECONDARY"/>
+        <CustomButton text = "Continue with Apple" onPress = {onGetStartedPressed} type = "TERTIARY"/>
+        <CustomButton text = "Continue with Facebook" onPress = {onGetStartedPressed} type = "TERTIARY"/>
+        <CustomButton text = "Continue with Gmail" onPress = {onGetStartedPressed} type = "TERTIARY"/>
+        <CustomButton text = "Sign up later" onPress = {onGetStartedPressed} type = "SECONDARY"/>
         </View>
     </SafeAreaView>
   )
