@@ -13,7 +13,7 @@ import CustomButton from '../components/CustomButton/CustomButton';
 const GettingStartedScreen = ({ navigation }) => {
 
   const onPressStart = () => {
-    navigation.navigate('SignIn');
+    navigation.navigate('SignUp');
   }
 
   const goToLogin = () => {

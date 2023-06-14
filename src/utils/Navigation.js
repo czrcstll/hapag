@@ -2,7 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import LoginScreen from '../screens/LoginScreen';
-import SignInScreen from '../screens/SignInScreen';
+import SignUpScreen from '../screens/SignUpScreen';
 import GettingStartedScreen from '../screens/GettingStartedScreen';
 import EnterHealthDetailsScreen from '../screens/EnterHealthDetailsScreen';
 import PhysicalFactorScreen from '../screens/PhysicalFactorScreen';
@@ -17,7 +17,7 @@ const defaultNavigationOptions = {
 const AppNavigator = createStackNavigator(
   {
     Login: LoginScreen,
-    SignIn: SignInScreen,
+    SignUp: SignUpScreen,
     GettingStarted: GettingStartedScreen,
     EnterHealthDetails: EnterHealthDetailsScreen,
     PhysicalFactor: PhysicalFactorScreen,

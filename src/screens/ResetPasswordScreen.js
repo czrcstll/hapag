@@ -15,7 +15,7 @@ const ResetPasswordScreen = () => {
     const {newCode, setNewCode} = useState('');
 
 
-    const onSignInPressed = () =>{
+    const onSignUpPressed = () =>{
         console.warn('Sign in');
       }
 
@@ -33,7 +33,7 @@ const ResetPasswordScreen = () => {
         
         </View>
         <CustomButton text = "Back to Sign In" type = "SECONDARY" onPress = {onResendPressed}/>
-        <CustomButton text = "Finish" onPress = {onSignInPressed}/>
+        <CustomButton text = "Finish" onPress = {onSignUpPressed}/>
     
 
     </SafeAreaView>

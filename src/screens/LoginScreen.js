@@ -21,7 +21,7 @@ const LoginScreen = ({ navigation }) => {
     console.warn('Login');
   }
 
-  const onPressSignIn = () => {
+  const onPressSignUp = () => {
     navigation.navigate('GettingStarted');
   }
 
@@ -38,7 +38,7 @@ const LoginScreen = ({ navigation }) => {
         <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
         <CustomButton text="Forgot your password?" onPress={onPressForgot} type="SECONDARY" />
         <View style={styles.buttonWrapper}>
-          <CustomButton text="Sign up" onPress={onPressSignIn} type="SECONDARY" />
+          <CustomButton text="Sign up" onPress={onPressSignUp} type="SECONDARY" />
           <CustomButton text="Login" onPress={handleLogin} />
         </View>
 
