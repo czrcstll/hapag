@@ -1,57 +1,53 @@
-import React, {useState} from 'react';
-import { 
-  View, 
+import React, { useState } from 'react';
+import {
+  View,
   Text,
   Image,
   StyleSheet,
   SafeAreaView,
   useWindowDimensions
- } from 'react-native';
- import CustomInput from '../components/CustomInput/CustomInput';
- import CustomButton from '../components/CustomButton/CustomButton';
+} from 'react-native';
+import CustomInput from '../components/CustomInput/CustomInput';
+import CustomButton from '../components/CustomButton/CustomButton';
 
-const EnterHealthDetailsScreen = () => {
-    const {age, setAge} = useState('');
-    
-    const {sex, setSex} = useState('');
-    const {birthday, setBirthday} = useState('');
-    const {religion, setReligion} = useState('');
+const EnterHealthDetailsScreen = ({ navigation }) => {
+  const { age, setAge } = useState('');
 
-    const {height, setHeight} = useState('');
-    const {weight, setWeight} = useState('');
+  const { sex, setSex } = useState('');
+  const { birthday, setBirthday } = useState('');
+  const { religion, setReligion } = useState('');
 
+  const { height, setHeight } = useState('');
+  const { weight, setWeight } = useState('');
 
-  const onSignInPressed = () =>{
-    console.warn('Sign in');
+  const goToNextScreen = () => {
+    navigation.navigate('PhysicalFactor');
   }
 
-  /*
-  //put in login page
-  const onForgotPasswordPressed = () => {
-    console.warn{'onForgotPasswordPressed'};
+  const goToLogin = () => {
+    navigation.navigate('Login');
   }
-*/
+
   return (
     <SafeAreaView>
-      <View style = {styles.root}>
-      <Text style = {styles.headerText}>Enter your health details</Text>
-        <Text style = {styles.subHeadingText}>Get customized meal recommendations according to your needs</Text>
+      <View style={styles.root}>
+        <Text style={styles.headerText}>Enter your health details</Text>
+        <Text style={styles.subHeadingText}>Get customized meal recommendations according to your needs</Text>
 
-        <CustomInput placeholder = "Age" value = {age} setValue = {setAge}/>
-        <CustomInput placeholder = "Sex" value = {sex} setValue = {setSex}/>
-        <CustomInput placeholder = "Birthday" value = {birthday} setValue = {setBirthday}/>
-        <CustomInput placeholder = "Religion" value = {religion} setValue = {setReligion}/>
+        <CustomInput placeholder="Age" value={age} setValue={setAge} />
+        <CustomInput placeholder="Sex" value={sex} setValue={setSex} />
+        <CustomInput placeholder="Birthday" value={birthday} setValue={setBirthday} />
+        <CustomInput placeholder="Religion" value={religion} setValue={setReligion} />
 
-        <View style = {styles.measurementsWrapper}>
-        <CustomInput placeholder = "Height(cm)" value = {height} setValue = {setHeight}/>
-        <CustomInput placeholder = "Weight(kg)" value = {weight} setValue = {setWeight}/>
+        <View style={styles.measurementsWrapper}>
+          <CustomInput placeholder="Height(cm)" value={height} setValue={setHeight} />
+          <CustomInput placeholder="Weight(kg)" value={weight} setValue={setWeight} />
         </View>
 
+        <CustomButton text="Sign up later" onPress={goToLogin} type="SECONDARY" />
+        <CustomButton text="Next" onPress={goToNextScreen} />
 
-        <CustomButton text = "Sign up later" onPress = {onSignInPressed} type = "SECONDARY"/>
-        <CustomButton text = "Next" onPress = {onSignInPressed}/>
-        
-        </View>
+      </View>
     </SafeAreaView>
   )
 }
@@ -92,8 +88,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column'
   }
-  
+
 });
 
-
-export default EnterHealthDetailsScreen
+export default EnterHealthDetailsScreen;

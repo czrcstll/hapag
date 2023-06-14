@@ -1,47 +1,43 @@
-import React, {useState} from 'react';
-import { 
-  View, 
+import React, { useState } from 'react';
+import {
+  View,
   Text,
   Image,
   StyleSheet,
   SafeAreaView,
   useWindowDimensions
- } from 'react-native';
- import CustomInput from '../components/CustomInput/CustomInput';
- import CustomButton from '../components/CustomButton/CustomButton';
+} from 'react-native';
+import CustomInput from '../components/CustomInput/CustomInput';
+import CustomButton from '../components/CustomButton/CustomButton';
 
-const SignUpScreen = () => {
-  const {username, setUsername} = useState('');
-  const {email, setEmail} = useState('');
-  const {phone, setPhone} = useState('');
-  const {password, setPassword} = useState('');
-  const {repeatPassword, setRepeatPassword} = useState('');
+const SignInScreen = ({ navigation }) => {
+  const { username, setUsername } = useState('');
+  const { email, setEmail } = useState('');
+  const { phone, setPhone } = useState('');
+  const { password, setPassword } = useState('');
 
-  const {height} = useWindowDimensions();
+  const { height } = useWindowDimensions();
 
-  const onSignInPressed = () =>{
-    console.warn('Sign in');
+  const goToNextScreen = () => {
+    navigation.navigate('EnterHealthDetails');
   }
 
-  /*
-  //put in login page
-  const onForgotPasswordPressed = () => {
-    console.warn{'onForgotPasswordPressed'};
+  const goBack = () => {
+    navigation.goBack();
   }
-*/
+
   return (
     <SafeAreaView>
-      <View style = {styles.root}>
-      <Text style = {styles.headerText}>Getting Started</Text>
-        <Text style = {styles.subHeadingText}>Create an account for a complete experience</Text>
-        <CustomInput placeholder = "Username" value = {username} setValue = {setUsername}/>
-        <CustomInput placeholder = "Email" value = {email} setValue = {setEmail}/>
-        <CustomInput placeholder = "Phone Number" value = {phone} setValue = {setPhone}/>
-        <CustomInput placeholder = "Password" value = {password} setValue = {setPassword} secureTextEntry = {true}/>
-        <CustomInput placeholder = "Retype Password" value = {repeatPassword} setValue = {setRepeatPassword} secureTextEntry = {true}/>
-        <View style = {styles.buttonWrapper}>
-        <CustomButton text = "Sign up later" onPress = {onSignInPressed} type = "SECONDARY"/>
-        <CustomButton text = "Next" onPress = {onSignInPressed}/>
+      <View style={styles.root}>
+        <Text style={styles.headerText}>Getting Started</Text>
+        <Text style={styles.subHeadingText}>Create an account for a complete experience</Text>
+        <CustomInput placeholder="Username" value={username} setValue={setUsername} />
+        <CustomInput placeholder="Email" value={email} setValue={setEmail} />
+        <CustomInput placeholder="Phone Number" value={phone} setValue={setPhone} />
+        <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
+        <View style={styles.buttonWrapper}>
+          <CustomButton text="Sign up later" onPress={goBack} type="SECONDARY" />
+          <CustomButton text="Next" onPress={goToNextScreen} />
         </View>
 
       </View>
@@ -54,20 +50,20 @@ const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
     padding: 30,
-    marginTop: '10%'
+    marginTop: 60
   },
 
   headerText: {
     fontSize: 24,
     color: '#44AF69',
-    marginBottom: 10,
+    marginBottom: 12,
   },
 
   subHeadingText: {
     fontSize: 18,
     color: '#8E8EA9',
     textAlign: 'center',
-    marginBottom: '10%',
+    marginBottom: 50,
   },
 
   textButton: {
@@ -78,10 +74,9 @@ const styles = StyleSheet.create({
   },
 
   buttonWrapper: {
-    marginTop: '20%'
+    marginTop: '25%'
   }
-  
+
 });
 
-
-export default SignUpScreen
+export default SignInScreen;

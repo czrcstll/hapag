@@ -1,41 +1,39 @@
-import React, {useState} from 'react';
-import { 
-  View, 
+import React, { useState } from 'react';
+import {
+  View,
   Text,
   Image,
   StyleSheet,
   SafeAreaView,
   useWindowDimensions
- } from 'react-native';
- import CustomInput from '../components/CustomInput/CustomInput';
- import CustomButton from '../components/CustomButton/CustomButton';
+} from 'react-native';
+import CustomInput from '../components/CustomInput/CustomInput';
+import CustomButton from '../components/CustomButton/CustomButton';
 
-const ForgotPasswordScreen = () => {
-  const {email, setEmail} = useState('');
-  const {password, setPassword} = useState('');
+const ForgotPasswordScreen = ({ navigation }) => {
+  const { email, setEmail } = useState('');
+  const { password, setPassword } = useState('');
 
-  const {height} = useWindowDimensions();
+  const { height } = useWindowDimensions();
 
-  const onSignInPressed = () =>{
-    console.warn('Sign in');
+  const handleForgotPassword = () => {
+
   }
 
-  /*
-  //put in login page
-  const onForgotPasswordPressed = () => {
-    console.warn{'onForgotPasswordPressed'};
+  const goBack = () => {
+    navigation.goBack();
   }
-*/
+
   return (
     <SafeAreaView>
-      <View style = {styles.root}>
-      <Text style = {styles.headerText}>Forgot your password?</Text>
-        <Text style = {styles.subHeadingText}>Enter the email address that is associated with your account</Text>
-        <CustomInput placeholder = "Email" value = {email} setValue = {setEmail}/>
-        <Text style = {styles.feedbackText}>We will email you a code to reset your password</Text>
-        <View style = {styles.buttonWrapper}>
-        <CustomButton text = "Back" onPress = {onSignInPressed} type = "SECONDARY"/>
-        <CustomButton text = "Send" onPress = {onSignInPressed}/>
+      <View style={styles.root}>
+        <Text style={styles.headerText}>Forgot your password?</Text>
+        <Text style={styles.subHeadingText}>Enter the email address that is associated with your account</Text>
+        <CustomInput placeholder="Email" value={email} setValue={setEmail} />
+        <Text style={styles.feedbackText}>We will email you a link to reset your password</Text>
+        <View style={styles.buttonWrapper}>
+          <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
+          <CustomButton text="Send" onPress={handleForgotPassword} />
         </View>
 
       </View>
@@ -79,8 +77,7 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     marginTop: '25%'
   }
-  
+
 });
 
-
-export default ForgotPasswordScreen
+export default ForgotPasswordScreen;
