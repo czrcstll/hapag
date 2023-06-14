@@ -7,3 +7,5 @@ export { PhysicalFactorScreen } from './PhysicalFactorScreen';
 export { ComorbiditiesScreen } from './ComorbiditiesScreen';
 export { AllergensScreen } from './AllergensScreen';
 export { ConfirmEmailScreen } from './ConfirmEmailScreen';
+export { ResetPasswordScreen } from './ResetPasswordScreen';
+export { HomeScreen } from './HomeScreen';

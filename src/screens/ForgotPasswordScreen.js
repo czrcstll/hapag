@@ -32,7 +32,7 @@ const ForgotPasswordScreen = () => {
       <Text style = {styles.headerText}>Forgot your password?</Text>
         <Text style = {styles.subHeadingText}>Enter the email address that is associated with your account</Text>
         <CustomInput placeholder = "Email" value = {email} setValue = {setEmail}/>
-        <Text style = {styles.feedbackText}>We will email you a link to reset your password</Text>
+        <Text style = {styles.feedbackText}>We will email you a code to reset your password</Text>
         <View style = {styles.buttonWrapper}>
         <CustomButton text = "Back" onPress = {onSignInPressed} type = "SECONDARY"/>
         <CustomButton text = "Send" onPress = {onSignInPressed}/>
