@@ -28,11 +28,7 @@ const HealthPlanScreen = () => {
         <Text style={styles.subHeadingText}>We have calculated your plan based on your bio metrics and physical factor. You can modify them anytime in your profile. However, we would like to remind you that the information on this app is not a substitute for professional medical advice, diagnosis or treatment.</Text>
 
         <CustomButton text="See Health Plan" onPress={temp} type="TERTIARY" />
-
-        <View style={styles.measurementsWrapper}>
-          <CustomInput placeholder="Height(cm)" value={height} setValue={setHeight} />
-          <CustomInput placeholder="Weight(kg)" value={weight} setValue={setWeight} />
-        </View>
+        <CustomButton text="I have read the Terms and Conditions" onPress={goBack} type="SECONDARY" />
 
         <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
         <CustomButton text="Next" onPress={goToNextScreen} />
