@@ -7,39 +7,33 @@ import {
   SafeAreaView,
   useWindowDimensions
 } from 'react-native';
-import CustomInput from '../components/CustomInput/CustomInput';
-import CustomButton from '../components/CustomButton/CustomButton';
+import CustomInput from '../../components/CustomInput/CustomInput';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
-const LoginScreen = ({ navigation }) => {
-  const { username, setUsername } = useState('');
+const ForgotPasswordScreen = ({ navigation }) => {
   const { email, setEmail } = useState('');
   const { password, setPassword } = useState('');
 
   const { height } = useWindowDimensions();
 
-  const handleLogin = () => {
-    console.warn('Login');
+  const handleForgotPassword = () => {
+
   }
 
-  const onPressSignUp = () => {
-    navigation.navigate('GettingStarted');
-  }
-
-  const onPressForgot = () => {
-    navigation.navigate('ForgotPassword');
+  const goBack = () => {
+    navigation.goBack();
   }
 
   return (
     <SafeAreaView>
       <View style={styles.root}>
-        <Text style={styles.headerText}>Login</Text>
-        <Text style={styles.subHeadingText}>Sign In to Access Your Personalized Meal Plan and Delivery Options</Text>
+        <Text style={styles.headerText}>Forgot your password?</Text>
+        <Text style={styles.subHeadingText}>Enter the email address that is associated with your account</Text>
         <CustomInput placeholder="Email" value={email} setValue={setEmail} />
-        <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
-        <CustomButton text="Forgot your password?" onPress={onPressForgot} type="SECONDARY" />
+        <Text style={styles.feedbackText}>We will email you a link to reset your password</Text>
         <View style={styles.buttonWrapper}>
-          <CustomButton text="Sign up" onPress={onPressSignUp} type="SECONDARY" />
-          <CustomButton text="Login" onPress={handleLogin} />
+          <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
+          <CustomButton text="Send" onPress={handleForgotPassword} />
         </View>
 
       </View>
@@ -68,6 +62,11 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
 
+  feedbackText: {
+    color: '#F6A43E',
+    fontSize: 14
+  },
+
   textButton: {
     fontSize: 16,
     color: '#8E8EA9',
@@ -81,4 +80,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default LoginScreen;
+export default ForgotPasswordScreen;

@@ -7,13 +7,13 @@ import {
   SafeAreaView,
   useWindowDimensions
 } from 'react-native';
-import CustomInput from '../components/CustomInput/CustomInput';
-import CustomButton from '../components/CustomButton/CustomButton';
+import CustomInput from '../../components/CustomInput/CustomInput';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
-const ComorbiditiesScreen = ({ navigation }) => {
+const AllergensScreen = ({ navigation }) => {
 
   const goToNextScreen = () => {
-    navigation.navigate('Allergens');
+    // navigation.navigate('Allergens');
   }
 
   const goBack = () => {
@@ -26,18 +26,16 @@ const ComorbiditiesScreen = ({ navigation }) => {
   return (
     <SafeAreaView>
       <View style={styles.root}>
-        <Text style={styles.headerText}>Do you have any existing comorbidity?</Text>
+        <Text style={styles.headerText}>Do you have any food allergen?</Text>
         <Text style={styles.subHeadingText}>Let us tailor your food choices according to your conditions</Text>
 
         <Text style={styles.subHeadingText}>Select all that applies</Text>
-        <CustomButton text="Cancer" onPress={temp} type="TERTIARY" />
-        <CustomButton text="Chronic Lung Disease" onPress={temp} type="TERTIARY" />
-        <CustomButton text="Hypertension" onPress={temp} type="TERTIARY" />
-        <CustomButton text="Heart Disease" onPress={temp} type="TERTIARY" />
-        <CustomButton text="Chronic Kidney Disease" onPress={temp} type="TERTIARY" />
-
-        <CustomButton text="Diabetes" onPress={temp} type="TERTIARY" />
-
+        <CustomButton text="Egg" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Nuts" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Gluten" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Milk" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Soy" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Shellfish" onPress={temp} type="TERTIARY" />
 
         <View style={styles.buttonWrapper}>
           <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
@@ -84,4 +82,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default ComorbiditiesScreen;
+export default AllergensScreen;

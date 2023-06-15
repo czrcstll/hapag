@@ -1,8 +1,11 @@
 import Navigation from './src/utils/Navigation';
 
+import AuthNavigator from './src/navigations/AuthNavigator';
+
 const App = () => {
   return (
-    <Navigation />
+    <AuthNavigator/>
+    //<Navigation/>
   );
 };
 

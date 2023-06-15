@@ -7,37 +7,39 @@ import {
   SafeAreaView,
   useWindowDimensions
 } from 'react-native';
-import CustomInput from '../components/CustomInput/CustomInput';
-import CustomButton from '../components/CustomButton/CustomButton';
+import CustomInput from '../../components/CustomInput/CustomInput';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
-const SignUpScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }) => {
   const { username, setUsername } = useState('');
   const { email, setEmail } = useState('');
-  const { phone, setPhone } = useState('');
   const { password, setPassword } = useState('');
 
   const { height } = useWindowDimensions();
 
-  const goToNextScreen = () => {
-    navigation.navigate('EnterHealthDetails');
+  const handleLogin = () => {
+    console.warn('Login');
   }
 
-  const goBack = () => {
-    navigation.goBack();
+  const onPressSignUp = () => {
+    navigation.navigate('GettingStarted');
+  }
+
+  const onPressForgot = () => {
+    navigation.navigate('ForgotPassword');
   }
 
   return (
     <SafeAreaView>
       <View style={styles.root}>
-        <Text style={styles.headerText}>Getting Started</Text>
-        <Text style={styles.subHeadingText}>Create an account for a complete experience</Text>
-        <CustomInput placeholder="Username" value={username} setValue={setUsername} />
+        <Text style={styles.headerText}>Login</Text>
+        <Text style={styles.subHeadingText}>Sign In to Access Your Personalized Meal Plan and Delivery Options</Text>
         <CustomInput placeholder="Email" value={email} setValue={setEmail} />
-        <CustomInput placeholder="Phone Number" value={phone} setValue={setPhone} />
         <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
+        <CustomButton text="Forgot your password?" onPress={onPressForgot} type="SECONDARY" />
         <View style={styles.buttonWrapper}>
-          <CustomButton text="Sign up later" onPress={goBack} type="SECONDARY" />
-          <CustomButton text="Next" onPress={goToNextScreen} />
+          <CustomButton text="Sign up" onPress={onPressSignUp} type="SECONDARY" />
+          <CustomButton text="Login" onPress={handleLogin} />
         </View>
 
       </View>
@@ -79,4 +81,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default SignUpScreen;
+export default LoginScreen;

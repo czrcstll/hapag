@@ -7,17 +7,19 @@ import {
   SafeAreaView,
   useWindowDimensions
 } from 'react-native';
-import CustomInput from '../components/CustomInput/CustomInput';
-import CustomButton from '../components/CustomButton/CustomButton';
+import CustomInput from '../../components/CustomInput/CustomInput';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
-const ForgotPasswordScreen = ({ navigation }) => {
+const SignUpScreen = ({ navigation }) => {
+  const { username, setUsername } = useState('');
   const { email, setEmail } = useState('');
+  const { phone, setPhone } = useState('');
   const { password, setPassword } = useState('');
 
   const { height } = useWindowDimensions();
 
-  const handleForgotPassword = () => {
-
+  const goToNextScreen = () => {
+    navigation.navigate('EnterHealthDetails');
   }
 
   const goBack = () => {
@@ -27,13 +29,15 @@ const ForgotPasswordScreen = ({ navigation }) => {
   return (
     <SafeAreaView>
       <View style={styles.root}>
-        <Text style={styles.headerText}>Forgot your password?</Text>
-        <Text style={styles.subHeadingText}>Enter the email address that is associated with your account</Text>
+        <Text style={styles.headerText}>Getting Started</Text>
+        <Text style={styles.subHeadingText}>Create an account for a complete experience</Text>
+        <CustomInput placeholder="Username" value={username} setValue={setUsername} />
         <CustomInput placeholder="Email" value={email} setValue={setEmail} />
-        <Text style={styles.feedbackText}>We will email you a link to reset your password</Text>
+        <CustomInput placeholder="Phone Number" value={phone} setValue={setPhone} />
+        <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
         <View style={styles.buttonWrapper}>
-          <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
-          <CustomButton text="Send" onPress={handleForgotPassword} />
+          <CustomButton text="Sign up later" onPress={goBack} type="SECONDARY" />
+          <CustomButton text="Next" onPress={goToNextScreen} />
         </View>
 
       </View>
@@ -62,11 +66,6 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
 
-  feedbackText: {
-    color: '#F6A43E',
-    fontSize: 14
-  },
-
   textButton: {
     fontSize: 16,
     color: '#8E8EA9',
@@ -80,4 +79,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default ForgotPasswordScreen;
+export default SignUpScreen;

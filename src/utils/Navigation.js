@@ -1,14 +1,14 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
-import LoginScreen from '../screens/LoginScreen';
-import SignUpScreen from '../screens/SignUpScreen';
-import GettingStartedScreen from '../screens/GettingStartedScreen';
-import EnterHealthDetailsScreen from '../screens/EnterHealthDetailsScreen';
-import PhysicalFactorScreen from '../screens/PhysicalFactorScreen';
-import ComorbiditiesScreen from '../screens/ComorbiditiesScreen';
-import AllergensScreen from '../screens/AllergensScreen';
-import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
+import LoginScreen from '../screens/auth/LoginScreen';
+import SignUpScreen from '../screens/auth/SignUpScreen';
+import GettingStartedScreen from '../screens/auth/GettingStartedScreen';
+import EnterHealthDetailsScreen from '../screens/auth/EnterHealthDetailsScreen';
+import PhysicalFactorScreen from '../screens/auth/PhysicalFactorScreen';
+import ComorbiditiesScreen from '../screens/auth/ComorbiditiesScreen';
+import AllergensScreen from '../screens/auth/AllergensScreen';
+import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
 
 const defaultNavigationOptions = {
   headerShown: false
@@ -16,9 +16,9 @@ const defaultNavigationOptions = {
 
 const AppNavigator = createStackNavigator(
   {
+    GettingStarted: GettingStartedScreen,
     Login: LoginScreen,
     SignUp: SignUpScreen,
-    GettingStarted: GettingStartedScreen,
     EnterHealthDetails: EnterHealthDetailsScreen,
     PhysicalFactor: PhysicalFactorScreen,
     Comorbidities: ComorbiditiesScreen,
@@ -26,7 +26,7 @@ const AppNavigator = createStackNavigator(
     ForgotPassword: ForgotPasswordScreen
   },
   {
-    initialRouteName: 'Login',
+    initialRouteName: 'GettingStarted',
     defaultNavigationOptions
   }
 );
