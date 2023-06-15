@@ -18,6 +18,7 @@ import ConfirmEmailScreen from '../screens/auth/ConfirmEmailScreen';
 import HomeScreen from '../screens/home/HomeScreen';
 import HealthPlanScreen from '../screens/auth/HealthPlanScreen';
 import HealthGoalScreen from '../screens/auth/HealthGoalScreen';
+import SuccesfulPasswordChangeScreen from '../screens/auth/SuccessfulPasswordChangeScreen';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,7 @@ const AuthNavigator = () => {
             <Stack.Screen name = 'Allergens' component = { AllergensScreen }/>
             <Stack.Screen name = 'ForgotPassword' component = { ForgotPasswordScreen }/>
             <Stack.Screen name = 'ResetPassword' component = { ResetPasswordScreen }/>
+            <Stack.Screen name = 'SuccessfulPasswordUpdate' component = { SuccesfulPasswordChangeScreen }/>
             <Stack.Screen name = 'ConfirmEmail' component = { ConfirmEmailScreen }/>
             <Stack.Screen name = 'HealthPlan' component = { HealthPlanScreen }/>
             <Stack.Screen name = 'HealthGoal' component = { HealthGoalScreen }/>

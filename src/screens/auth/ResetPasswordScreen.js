@@ -19,8 +19,7 @@ const ResetPasswordScreen = () => {
 
 
     const onFinishedPressed = () =>{
-        console.warn('You have successfully changed your password! You may now login');
-        navigation.navigate('Login');
+        navigation.navigate('SuccessfulPasswordUpdate');
       }
 
       const goBack = () =>{
@@ -41,7 +40,7 @@ const ResetPasswordScreen = () => {
         <CustomButton text = "Resend Code" type = "SECONDARY" onPress = {onResendPressed}/>
         </View>
         
-        <CustomButton text = "Finish" onPress = {onFinishedPressed}/>
+        <CustomButton text = "Update" onPress = {onFinishedPressed}/>
     
 
     </SafeAreaView>
