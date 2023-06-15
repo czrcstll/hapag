@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import CustomInput from '../components/CustomInput/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
+import database from '../database/Database';
 
 const LoginScreen = ({ navigation }) => {
   const { username, setUsername } = useState('');
@@ -18,7 +19,27 @@ const LoginScreen = ({ navigation }) => {
   const { height } = useWindowDimensions();
 
   const handleLogin = () => {
-    console.warn('Login');
+
+    // // run this somewhere to create your tables 
+    // database.createTables()
+    // .then((result) => {
+    //   console.log(result);
+    // })
+    // .catch((error) => {
+    //   console.error(error);
+    // });
+    
+    // // run this to check your tables
+    // database.getAllTables()
+    // .then((result) => {
+    //   console.log(result);
+    // })
+    // .catch((error) => {
+    //   console.error(error);
+    // });
+
+
+    console.log('Login');
   }
 
   const onPressSignUp = () => {
