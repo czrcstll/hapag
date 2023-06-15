@@ -15,7 +15,7 @@ const AllergensScreen = () => {
 
   const navigation = useNavigation();
   const goToNextScreen = () => {
-    // navigation.navigate('Allergens');
+    navigation.navigate('HealthPlan');
   }
 
   const goBack = () => {

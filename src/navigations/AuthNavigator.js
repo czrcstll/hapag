@@ -3,6 +3,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+import { ROUTES } from '../constants';
 
 import LoginScreen from '../screens/auth/LoginScreen';
 import SignUpScreen from '../screens/auth/SignUpScreen';
@@ -15,7 +16,8 @@ import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
 import ResetPasswordScreen from '../screens/auth/ResetPasswordScreen';
 import ConfirmEmailScreen from '../screens/auth/ConfirmEmailScreen';
 import HomeScreen from '../screens/home/HomeScreen';
-import { ROUTES } from '../constants';
+import HealthPlanScreen from '../screens/auth/HealthPlanScreen';
+import HealthGoalScreen from '../screens/auth/HealthGoalScreen';
 
 const Stack = createStackNavigator();
 
@@ -33,7 +35,9 @@ const AuthNavigator = () => {
             <Stack.Screen name = 'ForgotPassword' component = { ForgotPasswordScreen }/>
             <Stack.Screen name = 'ResetPassword' component = { ResetPasswordScreen }/>
             <Stack.Screen name = 'ConfirmEmail' component = { ConfirmEmailScreen }/>
-
+            <Stack.Screen name = 'HealthPlan' component = { HealthPlanScreen }/>
+            <Stack.Screen name = 'HealthGoal' component = { HealthGoalScreen }/>
+            
             <Stack.Screen name = 'Home' component = { HomeScreen }/>
         </Stack.Navigator>
     </NavigationContainer>

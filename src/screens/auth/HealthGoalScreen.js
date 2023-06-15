@@ -11,32 +11,37 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 
-const HealthPlanScreen = () => {
+const HealthGoalScreen = () => {
   const navigation = useNavigation();
 
-  const goToNextScreen = () => {
-    navigation.navigate('Home');
-  }
-
-  const onSeePlan = () => {
-    navigation.navigate('HealthGoal');
-  }
-
   const goBack = () => {
-    navigation.navigate('Allergens');
+    navigation.navigate('HealthPlan');
   }
 
   return (
     <SafeAreaView>
       <View style={styles.root}>
-        <Text style={styles.headerText}>It seems like we already know each other 🤝</Text>
-        <Text style={styles.subHeadingText}>We have calculated your plan based on your bio metrics and physical factor. You can modify them anytime in your profile. However, we would like to remind you that the information on this app is not a substitute for professional medical advice, diagnosis or treatment.</Text>
+        <Text style={styles.headerText}>Health Plan</Text>
+        <Text style={styles.subHeadingText}>Current BMI</Text>
+        <Text style={styles.headerText}>26.3</Text>
+        <Text style={styles.headerText}>How many pounds would you like to lose per week?</Text>
+        <Text style={styles.headerText}>Your plan is for weight loss. You have to lose 4 kg at the rate of 1 lb per week.</Text>
 
-        <CustomButton text="See Health Plan" onPress={onSeePlan} type="TERTIARY" />
-        <CustomButton text="I have read the Terms and Conditions" onPress={goBack} type="SECONDARY" />
+        <Text style={styles.headerText}>Health Plan</Text>
+        <Text style={styles.headerText}>Your daily caloric goal is</Text>
+        <Text style={styles.headerText}>1500 Kcal</Text>
+        <Text style={styles.headerText}>-6% Calorie Deficit</Text>
+
+        <Text style={styles.headerText}>245g</Text>
+        <Text style={styles.headerText}>carbs</Text>
+
+        <Text style={styles.headerText}>55g</Text>
+        <Text style={styles.headerText}>protein</Text>
+
+        <Text style={styles.headerText}>35g</Text>
+        <Text style={styles.headerText}>fat</Text>
 
         <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
-        <CustomButton text="Next" onPress={goToNextScreen} />
 
       </View>
     </SafeAreaView>
@@ -82,4 +87,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default HealthPlanScreen;
+export default HealthGoalScreen;
