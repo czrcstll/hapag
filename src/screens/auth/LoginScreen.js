@@ -9,16 +9,18 @@ import {
 } from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
+
+  const navigation = useNavigation();
+
   const { username, setUsername } = useState('');
   const { email, setEmail } = useState('');
   const { password, setPassword } = useState('');
 
-  const { height } = useWindowDimensions();
-
   const handleLogin = () => {
-    console.warn('Login');
+    navigation.navigate('Home');
   }
 
   const onPressSignUp = () => {
@@ -28,6 +30,8 @@ const LoginScreen = ({ navigation }) => {
   const onPressForgot = () => {
     navigation.navigate('ForgotPassword');
   }
+
+
 
   return (
     <SafeAreaView>

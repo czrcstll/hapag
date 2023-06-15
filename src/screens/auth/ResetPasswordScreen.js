@@ -9,31 +9,39 @@ import {
  } from 'react-native';
  import CustomInput from '../../components/CustomInput/CustomInput';
  import CustomButton from '../../components/CustomButton/CustomButton';
+ import { useNavigation } from '@react-navigation/native';
 
 const ResetPasswordScreen = () => {
+    const navigation = useNavigation();
+
     const {newPassword, setNewPassword} = useState('');
     const {newCode, setNewCode} = useState('');
 
 
-    const onSignUpPressed = () =>{
-        console.warn('Sign in');
+    const onFinishedPressed = () =>{
+        console.warn('You have successfully changed your password! You may now login');
+        navigation.navigate('Login');
+      }
+
+      const goBack = () =>{
+        navigation.navigate('ForgotPassword');
       }
 
       const onResendPressed = () =>{
-        console.warn('Sign in');
+        console.warn('We have sent a new code to your email!');
       }
   return (
     <SafeAreaView>
         <View style = {styles.root}>
-        <CustomButton text = "Back to Sign In" type = "SECONDARY" onPress = {onResendPressed}/>
+        <CustomButton text = "Back" type = "SECONDARY" onPress = {goBack}/>
         <Text style = {styles.headerText}>Reset your Password</Text>
         <Text style = {styles.subHeadingText}>Enter the code we just sent to your email address to confirm your account verification</Text>
         <CustomInput placeholder = "Enter Code" value = {newCode} setValue = {setNewCode}/>
         <CustomInput placeholder = "Enter New Password" value = {newPassword} setValue = {setNewPassword}/>
-        
+        <CustomButton text = "Resend Code" type = "SECONDARY" onPress = {onResendPressed}/>
         </View>
-        <CustomButton text = "Back to Sign In" type = "SECONDARY" onPress = {onResendPressed}/>
-        <CustomButton text = "Finish" onPress = {onSignUpPressed}/>
+        
+        <CustomButton text = "Finish" onPress = {onFinishedPressed}/>
     
 
     </SafeAreaView>

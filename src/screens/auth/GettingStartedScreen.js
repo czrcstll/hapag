@@ -9,15 +9,31 @@ import {
 } from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
-const GettingStartedScreen = ({ navigation }) => {
+const GettingStartedScreen = () => {
+
+  const navigation = useNavigation();
 
   const onPressStart = () => {
     navigation.navigate('SignUp');
   }
 
-  const goToLogin = () => {
+  const onSignUpLater = () => {
     navigation.navigate('Login');
+  }
+
+  //Social Media Buttons
+  const onAppleSignUp = () => {
+    console.warn('Logging in with Apple');
+  }
+
+  const onFacebookSignUp = () => {
+    console.warn('Logging in with Apple');
+  }
+
+  const onGoogleSignUp = () => {
+    console.warn('Logging in with Apple');
   }
 
   return (
@@ -28,10 +44,10 @@ const GettingStartedScreen = ({ navigation }) => {
 
         <CustomButton text="Get Started" onPress={onPressStart} />
         <Text style={styles.subHeadingText}>OR</Text>
-        <CustomButton text="Continue with Apple" type="TERTIARY" />
-        <CustomButton text="Continue with Facebook" type="TERTIARY" />
-        <CustomButton text="Continue with Gmail" type="TERTIARY" />
-        <CustomButton text="Sign up later" onPress={goToLogin} type="SECONDARY" />
+        <CustomButton text="Continue with Apple" type="TERTIARY" onPress = { onAppleSignUp }/>
+        <CustomButton text="Continue with Facebook" type="TERTIARY" onPress = { onFacebookSignUp }/>
+        <CustomButton text="Continue with Google" type="TERTIARY" onPress = { onGoogleSignUp }/>
+        <CustomButton text="Login" onPress={onSignUpLater} type="SECONDARY" />
       </View>
     </SafeAreaView>
   )

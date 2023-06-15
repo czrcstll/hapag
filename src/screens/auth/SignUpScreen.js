@@ -9,17 +9,19 @@ import {
 } from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
-const SignUpScreen = ({ navigation }) => {
+const SignUpScreen = () => {
+  const navigation = useNavigation();
+  
   const { username, setUsername } = useState('');
   const { email, setEmail } = useState('');
   const { phone, setPhone } = useState('');
   const { password, setPassword } = useState('');
 
-  const { height } = useWindowDimensions();
 
   const goToNextScreen = () => {
-    navigation.navigate('EnterHealthDetails');
+    navigation.navigate('ConfirmEmail');
   }
 
   const goBack = () => {

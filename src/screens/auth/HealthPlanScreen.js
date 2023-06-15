@@ -11,17 +11,7 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 
-const EnterHealthDetailsScreen = () => {
-  const navigation = useNavigation();
-
-  const { age, setAge } = useState('');
-
-  const { sex, setSex } = useState('');
-  const { birthday, setBirthday } = useState('');
-  const { religion, setReligion } = useState('');
-
-  const { height, setHeight } = useState('');
-  const { weight, setWeight } = useState('');
+const HealthPlanScreen = () => {
 
   const goToNextScreen = () => {
     navigation.navigate('PhysicalFactor');
@@ -34,13 +24,10 @@ const EnterHealthDetailsScreen = () => {
   return (
     <SafeAreaView>
       <View style={styles.root}>
-        <Text style={styles.headerText}>Enter your health details</Text>
-        <Text style={styles.subHeadingText}>Get customized meal recommendations according to your needs</Text>
+        <Text style={styles.headerText}>It seems like we already know each other 🤝</Text>
+        <Text style={styles.subHeadingText}>We have calculated your plan based on your bio metrics and physical factor. You can modify them anytime in your profile. However, we would like to remind you that the information on this app is not a substitute for professional medical advice, diagnosis or treatment.</Text>
 
-        <CustomInput placeholder="Age" value={age} setValue={setAge} />
-        <CustomInput placeholder="Sex" value={sex} setValue={setSex} />
-        <CustomInput placeholder="Birthday" value={birthday} setValue={setBirthday} />
-        <CustomInput placeholder="Religion" value={religion} setValue={setReligion} />
+        <CustomButton text="See Health Plan" onPress={temp} type="TERTIARY" />
 
         <View style={styles.measurementsWrapper}>
           <CustomInput placeholder="Height(cm)" value={height} setValue={setHeight} />
@@ -94,4 +81,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default EnterHealthDetailsScreen;
+export default HealthPlanScreen;

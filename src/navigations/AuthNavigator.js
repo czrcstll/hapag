@@ -14,6 +14,7 @@ import AllergensScreen from '../screens/auth/AllergensScreen';
 import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
 import ResetPasswordScreen from '../screens/auth/ResetPasswordScreen';
 import ConfirmEmailScreen from '../screens/auth/ConfirmEmailScreen';
+import HomeScreen from '../screens/home/HomeScreen';
 import { ROUTES } from '../constants';
 
 const Stack = createStackNavigator();
@@ -32,6 +33,8 @@ const AuthNavigator = () => {
             <Stack.Screen name = 'ForgotPassword' component = { ForgotPasswordScreen }/>
             <Stack.Screen name = 'ResetPassword' component = { ResetPasswordScreen }/>
             <Stack.Screen name = 'ConfirmEmail' component = { ConfirmEmailScreen }/>
+
+            <Stack.Screen name = 'Home' component = { HomeScreen }/>
         </Stack.Navigator>
     </NavigationContainer>
 

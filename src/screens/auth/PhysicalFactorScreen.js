@@ -9,17 +9,17 @@ import {
 } from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
-const PhysicalFactorScreen = ({ navigation }) => {
-
-  const { height } = useWindowDimensions();
+const PhysicalFactorScreen = () => {
+  const navigation = useNavigation();
 
   const goToNextScreen = () => {
     navigation.navigate('Comorbidities');
   }
 
   const goBack = () => {
-    navigation.goBack();
+    navigation.navigate('HealthDetails');
   }
 
   const temp = () => {

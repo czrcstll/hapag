@@ -9,19 +9,20 @@ import {
 } from 'react-native';
 import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
-const ForgotPasswordScreen = ({ navigation }) => {
+const ForgotPasswordScreen = () => {
+
+  const navigation = useNavigation();
   const { email, setEmail } = useState('');
   const { password, setPassword } = useState('');
 
-  const { height } = useWindowDimensions();
-
-  const handleForgotPassword = () => {
-
+  const handleForgotPassword = () => { 
+    navigation.navigate('ResetPassword');
   }
 
   const goBack = () => {
-    navigation.goBack();
+    navigation.navigate('Login');
   }
 
   return (

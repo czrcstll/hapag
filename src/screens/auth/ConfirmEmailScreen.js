@@ -9,16 +9,19 @@ import {
  } from 'react-native';
  import CustomInput from '../../components/CustomInput/CustomInput';
  import CustomButton from '../../components/CustomButton/CustomButton';
-
+ import { useNavigation } from '@react-navigation/native';
 const ConfirmEmailScreen = () => {
+
+    const navigation = useNavigation();
     const {verificationCode, setVerificationCode} = useState('');
 
-    const onSignInPressed = () =>{
-        console.warn('Sign in');
+    const onVerifiedPressed = () =>{
+        console.warn('Congratulations for verifying your email!');
+        navigation.navigate('HealthDetails');
       }
 
       const onResendPressed = () =>{
-        console.warn('Sign in');
+        console.warn('We have sent a new code to your email!');
       }
   return (
     <SafeAreaView>
@@ -28,9 +31,10 @@ const ConfirmEmailScreen = () => {
         <Text style = {styles.subHeadingText}>Enter the code we just sent to your email address to confirm your account verification</Text>
         <CustomInput placeholder = "Enter Code" value = {verificationCode} setValue = {setVerificationCode}/>
         </View>
-        <CustomButton text = "Verify" onPress = {onSignInPressed}/>
+        <CustomButton text = "Resend Code" type = "SECONDARY" onPress = {onResendPressed}/>
+        <CustomButton text = "Verify" onPress = {onVerifiedPressed}/>
     
-<CustomButton text = "Resend Code" type = "SECONDARY" onPress = {onResendPressed}/>
+
     </SafeAreaView>
   )
 }
