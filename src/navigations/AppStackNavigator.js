@@ -28,7 +28,7 @@ const AppStackNavigator = () => {
           drawerLabelStyle: {
             fontSize: 16
           } }}>
-          <Drawer.Screen name = 'Home' component = { TabNavigator }/>
+          <Drawer.Screen name = 'Home ' component = { TabNavigator }/>
           <Drawer.Screen name = 'Profile' component = { MyProfileScreen }/>
           <Drawer.Screen name = 'Rewards' component = { RewardScreen }/>
           <Drawer.Screen name = 'Subscriptions' component = { SubscriptionsScreen }/>
