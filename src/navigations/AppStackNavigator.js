@@ -20,13 +20,22 @@ import DriverScreen from '../screens/drawer/DriverScreen';
 import TermsConditionsScreen from '../screens/drawer/TermsConditionsScreen';
 
 import CustomDrawer from '../components/CustomDrawer/CustomDrawer';
+import { COLORS } from '../constants';
 
 const Drawer = createDrawerNavigator();
 
 const AppStackNavigator = () => {
   return (
     <NavigationContainer>
-        <Drawer.Navigator drawerContent = { props => <CustomDrawer {...props}/>} screenOptions = {{headerShown: false}}>
+        <Drawer.Navigator 
+        drawerContent = { props => <CustomDrawer {...props}/>} 
+        screenOptions = {{
+          headerShown: false,
+          drawerActiveBackgroundColor: COLORS.orange,
+          drawerActiveTintColor: '#fff',
+          drawerLabelStyle: {
+            fontSize: 16
+          } }}>
           <Drawer.Screen name = 'Home' component = { HomeScreen }/>
           <Drawer.Screen name = 'Profile' component = { MyProfileScreen }/>
           <Drawer.Screen name = 'Rewards' component = { RewardScreen }/>
