@@ -40,7 +40,6 @@ const AppStackNavigator = () => {
           <Drawer.Screen name = 'Drive with Hapag' component = { DriverScreen }/>
           <Drawer.Screen name = 'Terms and Conditions' component = { TermsConditionsScreen }/>
         </Drawer.Navigator>
-
   )
 }
 

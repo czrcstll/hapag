@@ -3,8 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 
-
-
 import LoginScreen from '../screens/auth/LoginScreen';
 import SignUpScreen from '../screens/auth/SignUpScreen';
 import GettingStartedScreen from '../screens/auth/GettingStartedScreen';
@@ -29,8 +27,7 @@ const Stack = createStackNavigator();
 
 const AuthNavigator = () => {
   return (
-    <NavigationContainer>
-        <Stack.Navigator screenOptions = {{headerShown: false}}>
+       <Stack.Navigator screenOptions = {{headerShown: false}}>
           
             <Stack.Screen name = 'MealPlan' component = { MealPlanScreen }/>
             <Stack.Screen name = 'Meal' component = { MealScreen }/>
@@ -52,9 +49,7 @@ const AuthNavigator = () => {
             <Stack.Screen name = 'HealthGoal' component = { HealthGoalScreen }/>
             
             <Stack.Screen name = 'Home' component = { HomeScreen }/>
-
         </Stack.Navigator>
-      </NavigationContainer>
   )
 }
 
