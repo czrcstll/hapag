@@ -7,10 +7,13 @@ import {
   SafeAreaView,
   useWindowDimensions
 } from 'react-native';
-import CustomInput from '../components/CustomInput/CustomInput';
-import CustomButton from '../components/CustomButton/CustomButton';
+import CustomInput from '../../components/CustomInput/CustomInput';
+import CustomButton from '../../components/CustomButton/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
-const EnterHealthDetailsScreen = ({ navigation }) => {
+const EnterHealthDetailsScreen = () => {
+  const navigation = useNavigation();
+
   const { age, setAge } = useState('');
 
   const { sex, setSex } = useState('');
@@ -24,8 +27,8 @@ const EnterHealthDetailsScreen = ({ navigation }) => {
     navigation.navigate('PhysicalFactor');
   }
 
-  const goToLogin = () => {
-    navigation.navigate('Login');
+  const goBack = () => {
+    navigation.navigate('SignUp');
   }
 
   return (
@@ -44,7 +47,7 @@ const EnterHealthDetailsScreen = ({ navigation }) => {
           <CustomInput placeholder="Weight(kg)" value={weight} setValue={setWeight} />
         </View>
 
-        <CustomButton text="Sign up later" onPress={goToLogin} type="SECONDARY" />
+        <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
         <CustomButton text="Next" onPress={goToNextScreen} />
 
       </View>

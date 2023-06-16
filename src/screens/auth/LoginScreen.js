@@ -7,39 +7,20 @@ import {
   SafeAreaView,
   useWindowDimensions
 } from 'react-native';
-import CustomInput from '../components/CustomInput/CustomInput';
-import CustomButton from '../components/CustomButton/CustomButton';
-import database from '../database/Database';
+import CustomInput from '../../components/CustomInput/CustomInput';
+import CustomButton from '../../components/CustomButton/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
+
+  const navigation = useNavigation();
+
   const { username, setUsername } = useState('');
   const { email, setEmail } = useState('');
   const { password, setPassword } = useState('');
 
-  const { height } = useWindowDimensions();
-
   const handleLogin = () => {
-
-    // run this somewhere to create your tables 
-    database.createTables()
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-    
-    // run this to check your tables
-    database.getAllTables()
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-
-
-    console.log('Login');
+    navigation.navigate('Home');
   }
 
   const onPressSignUp = () => {
@@ -49,6 +30,8 @@ const LoginScreen = ({ navigation }) => {
   const onPressForgot = () => {
     navigation.navigate('ForgotPassword');
   }
+
+
 
   return (
     <SafeAreaView>
