@@ -1,9 +1,9 @@
-import { View, Text } from 'react-native'
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { ROUTES } from '../constants';
+
+
 
 import LoginScreen from '../screens/auth/LoginScreen';
 import SignUpScreen from '../screens/auth/SignUpScreen';
@@ -54,8 +54,7 @@ const AuthNavigator = () => {
             <Stack.Screen name = 'Home' component = { HomeScreen }/>
 
         </Stack.Navigator>
-    </NavigationContainer>
-
+      </NavigationContainer>
   )
 }
 

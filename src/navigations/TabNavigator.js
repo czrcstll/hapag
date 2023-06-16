@@ -15,7 +15,7 @@ const TabNavigator = () => {
             <Tab.Navigator screenOptions={{
                 headerShown: false
             }}>
-                <Tab.Screen name = 'Home' component={ HomeScreen }/>
+                <Tab.Screen name = 'Home2' component={ HomeScreen }/>
                 <Tab.Screen name = 'Shops' component={ ShopScreen }/>
                 <Tab.Screen name = 'Meal Plan' component={ MealPlanScreen }/>
                 <Tab.Screen name = 'Order' component={ OrderScreen }/>

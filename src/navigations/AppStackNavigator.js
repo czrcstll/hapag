@@ -1,6 +1,8 @@
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
+import { COLORS } from '../constants';
+
 import MyProfileScreen from '../screens/drawer/MyProfileScreen';
 import SubscriptionsScreen from '../screens/drawer/SubscriptionsScreen';
 import ReferralScreen from '../screens/drawer/ReferralScreen';
@@ -12,7 +14,6 @@ import DriverScreen from '../screens/drawer/DriverScreen';
 import TermsConditionsScreen from '../screens/drawer/TermsConditionsScreen';
 
 import CustomDrawer from '../components/CustomDrawer/CustomDrawer';
-import { COLORS } from '../constants';
 import TabNavigator from './TabNavigator';
 
 const Drawer = createDrawerNavigator();
@@ -28,7 +29,7 @@ const AppStackNavigator = () => {
           drawerLabelStyle: {
             fontSize: 16
           } }}>
-          <Drawer.Screen name = 'Home ' component = { TabNavigator }/>
+          <Drawer.Screen name = 'Home' component = { TabNavigator }/>
           <Drawer.Screen name = 'Profile' component = { MyProfileScreen }/>
           <Drawer.Screen name = 'Rewards' component = { RewardScreen }/>
           <Drawer.Screen name = 'Subscriptions' component = { SubscriptionsScreen }/>
