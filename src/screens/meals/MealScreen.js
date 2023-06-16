@@ -16,7 +16,7 @@ const MealScreen = () => {
   }
 
   const goBack = () => {
-    navigation.goBack();
+    navigation.navigate('MealPlan');
   }
 
   return (

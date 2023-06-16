@@ -13,7 +13,7 @@ const RecipeScreen = () => {
   }
 
   const goBack = () => {
-    navigation.goBack();
+    navigation.navigate('Meal');
   }
 
   return (

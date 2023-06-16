@@ -12,8 +12,16 @@ const CartScreen = () => {
     navigation.navigate('CheckOut');
   }
 
+  const onPressAddress = () => {
+    navigation.navigate('Address');
+  }
+
+  const onPressPayment = () => {
+    navigation.navigate('PaymentMethod');
+  }
+
   const goBack = () => {
-    navigation.goBack();
+    navigation.navigate('Meal');
   }
 
   return (
@@ -102,7 +110,7 @@ const CartScreen = () => {
               </View>
             </View>
             <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
-              <AntDesign name="right" size={20} color="#666687" />
+              <AntDesign name="right" size={20} color="#666687" onPress={onPressAddress}/>
             </View>
           </View>
 
@@ -117,7 +125,7 @@ const CartScreen = () => {
               </View>
             </View>
             <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
-              <AntDesign name="right" size={20} color="#666687" />
+              <AntDesign name="right" size={20} color="#666687" onPress={onPressPayment}/>
             </View>
           </View>
         </View>
