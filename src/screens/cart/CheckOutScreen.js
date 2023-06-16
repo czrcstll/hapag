@@ -9,11 +9,11 @@ const CheckOutScreen = () => {
   const navigation = useNavigation();
 
   const onPressFinished = () => {
-    navigation.navigate('');
+    navigation.navigate('OrderPlaced');
   }
 
   const goBack = () => {
-    navigation.goBack();
+    navigation.navigate('Cart');;
   }
 
   return (
