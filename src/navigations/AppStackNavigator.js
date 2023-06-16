@@ -1,14 +1,6 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-
-
-import HomeScreen from '../screens/home/HomeScreen';
-import MealScreen from '../screens/meals/MealScreen';
-import MealPlanScreen from '../screens/home/MealPlanScreen';
-import CartScreen from '../screens/cart/CartScreen';
-import CheckOutScreen from '../screens/cart/CheckOutScreen';
-import RecipeScreen from '../screens/meals/RecipeScreen';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+
 import MyProfileScreen from '../screens/drawer/MyProfileScreen';
 import SubscriptionsScreen from '../screens/drawer/SubscriptionsScreen';
 import ReferralScreen from '../screens/drawer/ReferralScreen';
@@ -21,12 +13,12 @@ import TermsConditionsScreen from '../screens/drawer/TermsConditionsScreen';
 
 import CustomDrawer from '../components/CustomDrawer/CustomDrawer';
 import { COLORS } from '../constants';
+import TabNavigator from './TabNavigator';
 
 const Drawer = createDrawerNavigator();
 
 const AppStackNavigator = () => {
   return (
-    <NavigationContainer>
         <Drawer.Navigator 
         drawerContent = { props => <CustomDrawer {...props}/>} 
         screenOptions = {{
@@ -36,7 +28,7 @@ const AppStackNavigator = () => {
           drawerLabelStyle: {
             fontSize: 16
           } }}>
-          <Drawer.Screen name = 'Home' component = { HomeScreen }/>
+          <Drawer.Screen name = 'Home' component = { TabNavigator }/>
           <Drawer.Screen name = 'Profile' component = { MyProfileScreen }/>
           <Drawer.Screen name = 'Rewards' component = { RewardScreen }/>
           <Drawer.Screen name = 'Subscriptions' component = { SubscriptionsScreen }/>
@@ -47,7 +39,6 @@ const AppStackNavigator = () => {
           <Drawer.Screen name = 'Drive with Hapag' component = { DriverScreen }/>
           <Drawer.Screen name = 'Terms and Conditions' component = { TermsConditionsScreen }/>
         </Drawer.Navigator>
-    </NavigationContainer>
 
   )
 }
