@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const PremiumScreen = () => {
+const SubscriptionsScreen = () => {
   return (
     <View>
-      <Text>PremiumScreen</Text>
+      <Text>SubscriptionsScreenScreen</Text>
     </View>
   )
 }
 
-export default PremiumScreen
+export default SubscriptionsScreen
