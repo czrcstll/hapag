@@ -141,12 +141,35 @@ const createTables = () => {
           `CREATE TABLE IF NOT EXISTS Ingredients(
             Ingredient_Id INTEGER PRIMARY KEY,
             Ingredient_Type_Id INTEGER,
-            Ingredient_Quantity INTEGER NOT NULL,
-            Ingredient_Calories INTEGER NOT NULL,
-            Ingredient_Fats INTEGER NOT NULL,
-            Ingredient_Carbohydrates INTEGER NOT NULL,
+            Ingredient_Energy INTEGER NOT NULL,
+            Ingredient_Carbohydrate INTEGER NOT NULL,
             Ingredient_Protein INTEGER NOT NULL,
+            Ingredient_Fat INTEGER NOT NULL,
+            Ingredient_Cholesterol INTEGER NOT NULL,
+            Ingredient_SaturatedFat INTEGER NOT NULL,
+            Ingredient_MonosaturatedFat INTEGER NOT NULL,
+            Ingredient_PolyunsaturatedFat INTEGER NOT NULL,
             FOREIGN KEY(Ingredient_Type_Id) REFERENCES Ingredient_Types(Ingredient_Type_Id)
+          );`,
+          [],
+          () => {
+            resolve('Database opened or created successfully.');
+          },
+          (_, error) => {
+            reject(new Error(`Failed to create database tables: ${error.message}`));
+          }
+        );
+
+        transaction.executeSql(
+          `CREATE TABLE IF NOT EXISTS Ingredient_Prices(
+            Ingredient_Prices_Id INTEGER PRIMARY KEY,
+            Ingredient_Id INTEGER,
+            IngredientPrices_Quantity INTEGER NOT NULL,
+            IngredientPrices_Unit INTEGER NOT NULL,
+            IngredientPrices_Prices INTEGER NOT NULL,
+            IngredientPrices_PriceUnit INTEGER NOT NULL,
+            IngredientPrices_Measurement INTEGER NOT NULL,
+            FOREIGN KEY(Ingredient_Id) REFERENCES Ingredients(Ingredient_Id)
           );`,
           [],
           () => {
@@ -220,10 +243,142 @@ const getAllTables = () => {
       );
     });
   });
+}
+
+const dropAllTables = () => {
+  const db = SQLite.openDatabase('Hapag.db');
+  return new Promise((resolve, reject) => {
+
+    db.transaction(
+      (transaction) => {
+
+    transaction.executeSql(
+      `DROP TABLE IF EXISTS Accounts;`,
+      [],
+      () => {
+        resolve('Database deleted successfully.');
+      },
+      (_, error) => {
+        reject(new Error(`Failed to delete table: ${error.message}`));
+      }
+    );
+
+    transaction.executeSql(
+      `DROP TABLE IF EXISTS Profiles;`,
+      [],
+      () => {
+        resolve('Database deleted successfully.');
+      },
+      (_, error) => {
+        reject(new Error(`Failed to delete table: ${error.message}`));
+      }
+    );
+
+    transaction.executeSql(
+      `DROP TABLE IF EXISTS Comorbidities;`,
+      [],
+      () => {
+        resolve('Database deleted successfully.');
+      },
+      (_, error) => {
+        reject(new Error(`Failed to delete table: ${error.message}`));
+      }
+    );
+
+    transaction.executeSql(
+      `DROP TABLE IF EXISTS Allergens;`,
+      [],
+      () => {
+        resolve('Database deleted successfully.');
+      },
+      (_, error) => {
+        reject(new Error(`Failed to delete table: ${error.message}`));
+      }
+    );
+
+    transaction.executeSql(
+      `DROP TABLE IF EXISTS Profile_Restrictions;`,
+      [],
+      () => {
+        resolve('Database deleted successfully.');
+      },
+      (_, error) => {
+        reject(new Error(`Failed to delete table: ${error.message}`));
+      }
+    );
+
+    transaction.executeSql(
+      `DROP TABLE IF EXISTS Ingredient_Types;`,
+      [],
+      () => {
+        resolve('Database deleted successfully.');
+      },
+      (_, error) => {
+        reject(new Error(`Failed to delete table: ${error.message}`));
+      }
+    );
+
+    transaction.executeSql(
+      `DROP TABLE IF EXISTS Restrictions;`,
+      [],
+      () => {
+        resolve('Database deleted successfully.');
+      },
+      (_, error) => {
+        reject(new Error(`Failed to delete table: ${error.message}`));
+      }
+    );
+
+    transaction.executeSql(
+      `DROP TABLE IF EXISTS Ingredients;`,
+      [],
+      () => {
+        resolve('Database deleted successfully.');
+      },
+      (_, error) => {
+        reject(new Error(`Failed to delete table: ${error.message}`));
+      }
+    );
+
+    transaction.executeSql(
+      `DROP TABLE IF EXISTS Ingredient_Prices;`,
+      [],
+      () => {
+        resolve('Database deleted successfully.');
+      },
+      (_, error) => {
+        reject(new Error(`Failed to delete table: ${error.message}`));
+      }
+    );
+
+    transaction.executeSql(
+      `DROP TABLE IF EXISTS Meals;`,
+      [],
+      () => {
+        resolve('Database deleted successfully.');
+      },
+      (_, error) => {
+        reject(new Error(`Failed to delete table: ${error.message}`));
+      }
+    );
+
+    transaction.executeSql(
+      `DROP TABLE IF EXISTS Meal_Ingredients;`,
+      [],
+      () => {
+        resolve('Database deleted successfully.');
+      },
+      (_, error) => {
+        reject(new Error(`Failed to delete table: ${error.message}`));
+      }
+    )
+  });
+  });
 };
 
 
 export default {
   createTables,
   getAllTables,
+  dropAllTables
 };

@@ -45,7 +45,54 @@ return new Promise((resolve, reject) => {
     });
 };
 
+const profileDeleteQuery = async (id, db) => {
+    return new Promise((resolve, reject) => {
+        db.transaction((transaction) => {
+        transaction.executeSql(
+            `DELETE FROM Profiles WHERE Profile_Id = ?`,
+            [id],
+            (_, result) => {
+            resolve(result);
+            },
+            (error) => {
+            reject(error);
+            }
+        );
+        });
+    });
+};
+
+const profileUpdateQuery = async (id, db, data) => {
+    return new Promise((resolve, reject) => {
+        db.transaction((transaction) => {
+        transaction.executeSql(
+            `UPDATE Profiles SET 
+            Profile_Name = ?, 
+            Profile_Gender = ?,
+            Profile_Birthdate = ?,
+            Profile_Height = ?,
+            Profile_Weight = ?,
+            Profile_Physical_Factor = ?,
+            Profile_BMI = ?,
+            Profile_Calories = ?,
+            Profile_Main = ?,
+            Profile_Restricted = ?
+            WHERE Profile_Id = ?`,
+            [data.name, data.gender, data.birthdate, data.height, data.weight, data.physical, data.bmi, data.calories, data.main, data.restricted, id],
+            (_, result) => {
+            resolve(result);
+            },
+            (error) => {
+            reject(error);
+            }
+        );
+        });
+    });
+};
+
 export default {
     profileSelectQuery,
-    profileInsertQuery
+    profileInsertQuery,
+    profileDeleteQuery,
+    profileUpdateQuery
 };

@@ -20,23 +20,23 @@ const LoginScreen = ({ navigation }) => {
 
   const handleLogin = () => {
 
-    // // run this somewhere to create your tables 
-    // database.createTables()
-    // .then((result) => {
-    //   console.log(result);
-    // })
-    // .catch((error) => {
-    //   console.error(error);
-    // });
+    // run this somewhere to create your tables 
+    database.createTables()
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
     
-    // // run this to check your tables
-    // database.getAllTables()
-    // .then((result) => {
-    //   console.log(result);
-    // })
-    // .catch((error) => {
-    //   console.error(error);
-    // });
+    // run this to check your tables
+    database.getAllTables()
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 
 
     console.log('Login');

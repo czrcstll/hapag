@@ -2,12 +2,12 @@ import database from '../database/Database';
 
 const db = database.openDatabase();
 
-const accountSelectQuery = (db) => {
+const ingredientSelectQuery = (db) => {
     return new Promise((resolve, reject) => {
         db.transaction(
             (transaction) => {
                 transaction.executeSql(
-                    'SELECT * FROM Accounts',
+                    'SELECT * FROM Ingredients',
                     [],
                     (_, result) => {
                     resolve(result.rows._array);
@@ -23,13 +23,12 @@ const accountSelectQuery = (db) => {
     });
 };
 
-// Use this as placeholder method to create actual insert query functions depending on which columns should be added
-const accountInsertQuery = async (values, db) => {
+const ingredientInsertQuery = async (values, db) => {
 return new Promise((resolve, reject) => {
     db.transaction((tx) => {
         tx.executeSql(
-            'INSERT INTO Accounts (Account_Email, Account_Fullname, Account_Password, Account_Mobile, Account_Verified) VALUES (?, ?, ?, ?, ?)',
-            [values[0], values[1], values[2], values[3], values[4]],
+            `INSERT INTO Ingredients (Ingredient_Type_Id, Ingredient_Quantity, Ingredient_Calories, Ingredient_Fats, Ingredient_Carbohydrates, Ingredient_Protein) VALUES (?, ?, ?, ?, ?, ?)`,
+            [values[0]],
             (_, { rowsAffected }) => {
             if (rowsAffected > 0) {
                 resolve('Inserted Successfully');
@@ -45,11 +44,11 @@ return new Promise((resolve, reject) => {
     });
 };
 
-const accountDeleteQuery = async (id, db) => {
+const ingredientDeleteQuery = async (id, db) => {
     return new Promise((resolve, reject) => {
         db.transaction((transaction) => {
         transaction.executeSql(
-            `DELETE FROM Accounts WHERE Account_Id = ?`,
+            `DELETE FROM Ingredients WHERE Ingredient_Id = ?`,
             [id],
             (_, result) => {
             resolve(result);
@@ -62,18 +61,19 @@ const accountDeleteQuery = async (id, db) => {
     });
 };
 
-const accountUpdateQuery = async (id, db, data) => {
+const ingredientUpdateQuery = async (id, db, data) => {
     return new Promise((resolve, reject) => {
         db.transaction((transaction) => {
         transaction.executeSql(
-            `UPDATE Accounts SET 
-            Account_Email = ?, 
-            Account_Fullname = ?,
-            Account_Password = ?,
-            Account_Mobile = ?,
-            Account_Verified = ?
-            WHERE Account_Id = ?`,
-            [data.email, data.name, data.pass, data.mobile, data.verified, id],
+            `UPDATE Ingredients SET 
+            Ingredient_Type_Id = ?,
+            Ingredient_Quantity = ?,
+            Ingredient_Calories = ?,
+            Ingredient_Fats = ?,
+            Ingredient_Carbohydrates = ?,
+            Ingredient_Protein = ?,
+            WHERE Ingredient_Id = ?`,
+            [data.type, data.quantity, data.calories, data.fats, data.carbohydrates, data.protein, id],
             (_, result) => {
             resolve(result);
             },
@@ -85,10 +85,9 @@ const accountUpdateQuery = async (id, db, data) => {
     });
 };
 
-
 export default {
-    accountSelectQuery,
-    accountInsertQuery,
-    accountDeleteQuery,
-    accountUpdateQuery
+    ingredientSelectQuery,
+    ingredientInsertQuery,
+    ingredientDeleteQuery,
+    ingredientUpdateQuery
 };
