@@ -19,6 +19,7 @@ import HomeScreen from '../screens/home/HomeScreen';
 import MealScreen from '../screens/meals/MealScreen';
 import MealPlanScreen from '../screens/home/MealPlanScreen';
 import CartScreen from '../screens/cart/CartScreen';
+import CheckOutScreen from '../screens/cart/CheckOutScreen';
 import RecipeScreen from '../screens/meals/RecipeScreen';
 import HealthPlanScreen from '../screens/auth/HealthPlanScreen';
 import HealthGoalScreen from '../screens/auth/HealthGoalScreen';
@@ -30,6 +31,12 @@ const AuthNavigator = () => {
   return (
     <NavigationContainer>
         <Stack.Navigator screenOptions = {{headerShown: false}}>
+          
+            <Stack.Screen name = 'MealPlan' component = { MealPlanScreen }/>
+            <Stack.Screen name = 'Meal' component = { MealScreen }/>
+            <Stack.Screen name = 'Recipe' component = { RecipeScreen }/>
+            <Stack.Screen name = 'Cart' component = { CartScreen }/>
+            <Stack.Screen name = 'CheckOut' component = { CheckOutScreen }/>
             <Stack.Screen name = 'GettingStarted' component = { GettingStartedScreen }/>
             <Stack.Screen name = 'Login' component = { LoginScreen }/>
             <Stack.Screen name = 'SignUp' component = { SignUpScreen }/>
@@ -46,10 +53,6 @@ const AuthNavigator = () => {
             
             <Stack.Screen name = 'Home' component = { HomeScreen }/>
 
-            <Stack.Screen name = 'MealPlan' component = { MealPlanScreen }/>
-            <Stack.Screen name = 'Meal' component = { MealScreen }/>
-            <Stack.Screen name = 'Recipe' component = { RecipeScreen }/>
-            <Stack.Screen name = 'Cart' component = { CartScreen }/>
         </Stack.Navigator>
     </NavigationContainer>
 

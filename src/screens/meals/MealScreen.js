@@ -11,6 +11,10 @@ const MealScreen = () => {
     navigation.navigate('Recipe');
   }
 
+  const onPressCart = () => {
+    navigation.navigate('Cart');
+  }
+
   const goBack = () => {
     navigation.goBack();
   }
@@ -74,7 +78,7 @@ const MealScreen = () => {
       </ScrollView>
 
       <View style={styles.footer}>
-        <Text style={{ textAlign: 'center', color: '#8E8EA9', fontWeight: 'bold', fontSize: 20 }}>Go to cart</Text>
+        <Text style={{ textAlign: 'center', color: '#8E8EA9', fontWeight: 'bold', fontSize: 20 }} onPress={onPressCart}>Go to cart</Text>
       </View>
     </SafeAreaView>
   );
