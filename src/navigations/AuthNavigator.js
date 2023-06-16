@@ -16,6 +16,10 @@ import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
 import ResetPasswordScreen from '../screens/auth/ResetPasswordScreen';
 import ConfirmEmailScreen from '../screens/auth/ConfirmEmailScreen';
 import HomeScreen from '../screens/home/HomeScreen';
+import MealScreen from '../screens/meals/MealScreen';
+import MealPlanScreen from '../screens/home/MealPlanScreen';
+import CartScreen from '../screens/cart/CartScreen';
+import RecipeScreen from '../screens/meals/RecipeScreen';
 import HealthPlanScreen from '../screens/auth/HealthPlanScreen';
 import HealthGoalScreen from '../screens/auth/HealthGoalScreen';
 import SuccesfulPasswordChangeScreen from '../screens/auth/SuccessfulPasswordChangeScreen';
@@ -41,6 +45,11 @@ const AuthNavigator = () => {
             <Stack.Screen name = 'HealthGoal' component = { HealthGoalScreen }/>
             
             <Stack.Screen name = 'Home' component = { HomeScreen }/>
+
+            <Stack.Screen name = 'MealPlan' component = { MealPlanScreen }/>
+            <Stack.Screen name = 'Meal' component = { MealScreen }/>
+            <Stack.Screen name = 'Recipe' component = { RecipeScreen }/>
+            <Stack.Screen name = 'Cart' component = { CartScreen }/>
         </Stack.Navigator>
     </NavigationContainer>
 
