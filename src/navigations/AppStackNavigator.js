@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { COLORS } from '../constants';
@@ -20,6 +21,7 @@ const Drawer = createDrawerNavigator();
 
 const AppStackNavigator = () => {
   return (
+    <NavigationContainer>
         <Drawer.Navigator 
         drawerContent = { props => <CustomDrawer {...props}/>} 
         screenOptions = {{
@@ -29,7 +31,7 @@ const AppStackNavigator = () => {
           drawerLabelStyle: {
             fontSize: 16
           } }}>
-          <Drawer.Screen name = 'Home' component = { TabNavigator }/>
+          <Drawer.Screen name = 'Home1' component = { TabNavigator }/>
           <Drawer.Screen name = 'Profile' component = { MyProfileScreen }/>
           <Drawer.Screen name = 'Rewards' component = { RewardScreen }/>
           <Drawer.Screen name = 'Subscriptions' component = { SubscriptionsScreen }/>
@@ -40,6 +42,8 @@ const AppStackNavigator = () => {
           <Drawer.Screen name = 'Drive with Hapag' component = { DriverScreen }/>
           <Drawer.Screen name = 'Terms and Conditions' component = { TermsConditionsScreen }/>
         </Drawer.Navigator>
+    </NavigationContainer>
+
   )
 }
 
