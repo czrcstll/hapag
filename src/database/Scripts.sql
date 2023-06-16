@@ -78,12 +78,28 @@ CREATE TABLE IF NOT EXISTS Restrictions(
 CREATE TABLE IF NOT EXISTS Ingredients(
 	Ingredient_Id INTEGER PRIMARY KEY,
 	Ingredient_Type_Id INTEGER,
-	Ingredient_Quantity INTEGER NOT NULL,
-	Ingredient_Calories INTEGER NOT NULL,
-	Ingredient_Fats INTEGER NOT NULL,
-	Ingredient_Carbohydrates INTEGER NOT NULL,
+	Ingredient_Energy INTEGER NOT NULL,
+	Ingredient_Carbohydrate INTEGER NOT NULL,
 	Ingredient_Protein INTEGER NOT NULL,
+	Ingredient_Fat INTEGER NOT NULL,
+	Ingredient_Cholesterol INTEGER NOT NULL,
+	Ingredient_SaturatedFat INTEGER NOT NULL,
+  	Ingredient_MonosaturatedFat INTEGER NOT NULL,
+ 	Ingredient_PolyunsaturatedFat INTEGER NOT NULL,
 	FOREIGN KEY(Ingredient_Type_Id) REFERENCES Ingredient_Types(Ingredient_Type_Id)
+);
+
+-- Ingredients_Prices
+
+CREATE TABLE IF NOT EXISTS Ingredient_Prices(
+	Ingredient_Prices_Id INTEGER PRIMARY KEY,
+	Ingredient_Id INTEGER,
+	IngredientPrices_Quantity INTEGER NOT NULL,
+	IngredientPrices_Unit INTEGER NOT NULL,
+	IngredientPrices_Prices INTEGER NOT NULL,
+	IngredientPrices_PriceUnit INTEGER NOT NULL,
+	IngredientPrices_Measurement INTEGER NOT NULL,
+	FOREIGN KEY(Ingredient_Id) REFERENCES Ingredients(Ingredient_Id)
 );
 
 -- Meals_Create
