@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, ScrollView, StyleSheet, Text, SafeAreaView, TouchableOpacity, TextInput } from 'react-native';
+import { View, ScrollView, StyleSheet, Text, SafeAreaView, TouchableOpacity, TextInput, ImageBackground} from 'react-native';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
 
 import { useNavigation } from '@react-navigation/native';
@@ -23,7 +23,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView>
       <ScrollView >
-        <View>
+        {/* <View>
               <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'center' }}>
                 <Ionicons name="ios-menu" size={30} color="#4A4A6A" />
               </View>
@@ -34,7 +34,12 @@ const HomeScreen = () => {
         <Text style = {{color: '#ffff', fontSize: 18}}>Explore different market choices</Text>
         <CustomButton text="Shops" onPress={goToShops} type="SECONDARY" />
        </View>
-       <FoodCategoryCarousel />
+       <FoodCategoryCarousel /> */}
+        <ImageBackground
+      source={require('../assets/placeholder/home-placeholder.png')}
+      style={styles.imageBackground}
+    />
+      {/* Your other components */}
       </ScrollView>
     </SafeAreaView>
   )
@@ -65,6 +70,10 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 16,
+  },
+  imageBackground: {
+    flex: 1,
+    resizeMode: 'cover',
   },
 });
 

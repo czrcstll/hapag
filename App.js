@@ -4,7 +4,7 @@ import AuthNavigator from './src/navigations/AuthNavigator';
 
 const App = () => {
   return (
-    <AuthNavigator/>
+    <AppStackNavigator/>
   );
 };
 
