@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#44AF69',
     marginBottom: 12,
+    fontWeight: 5
   },
 
   subHeadingText: {

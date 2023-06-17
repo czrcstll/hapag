@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useNavigation } from '@react-navigation/native';
 
 
 import LoginScreen from '../screens/auth/LoginScreen';
@@ -27,13 +28,14 @@ const Stack = createStackNavigator();
 
 const AuthNavigator = () => {
   return (
+    <NavigationContainer>
        <Stack.Navigator screenOptions = {{headerShown: false}}>
           
-            <Stack.Screen name = 'MealPlan' component = { MealPlanScreen }/>
+           <Stack.Screen name = 'MealPlan' component = { MealPlanScreen }/>
             <Stack.Screen name = 'Meal' component = { MealScreen }/>
             <Stack.Screen name = 'Recipe' component = { RecipeScreen }/>
             <Stack.Screen name = 'Cart' component = { CartScreen }/>
-            <Stack.Screen name = 'CheckOut' component = { CheckOutScreen }/>
+            <Stack.Screen name = 'CheckOut' component = { CheckOutScreen }/> 
             <Stack.Screen name = 'GettingStarted' component = { GettingStartedScreen }/>
             <Stack.Screen name = 'Login' component = { LoginScreen }/>
             <Stack.Screen name = 'SignUp' component = { SignUpScreen }/>
@@ -50,6 +52,8 @@ const AuthNavigator = () => {
             
             <Stack.Screen name = 'Home' component = { HomeScreen }/>
         </Stack.Navigator>
+        </NavigationContainer>
+        
   )
 }
 
