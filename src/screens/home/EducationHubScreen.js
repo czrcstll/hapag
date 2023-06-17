@@ -1,19 +1,19 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { ScrollView, SafeAreaView, ImageBackground } from 'react-native-gesture-handler'
+import { View, ScrollView, StyleSheet, Text, SafeAreaView, TouchableOpacity, TextInput, ImageBackground, Image, Dimensions } from 'react-native';
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 
 const EducationHubScreen = () => {
   return (
     <SafeAreaView>
-      <ScrollView>
-        <ImageBackground
-      source={require('../assets/placeholder/education-hub-placeholder.png')}
-      style={styles.imageBackground}
-    />
-      {/* Your other components */}
-      </ScrollView>
+      <Image source={require('../../../assets/placeholder/education-hub-placeholder.png')} style={styles.image} resizeMode="cover"/>
     </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  image: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+  }
+});
 
 export default EducationHubScreen
