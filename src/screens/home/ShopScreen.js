@@ -6,7 +6,7 @@ const ShopScreen = () => {
     <SafeAreaView>
       <ScrollView>
         <ImageBackground
-      source={require('../assets/placeholder/rewards-placeholder.png')}
+      // source={require('../assets/placeholder/rewards-placeholder.png')}
       style={styles.imageBackground}
     />
       {/* Your other components */}
