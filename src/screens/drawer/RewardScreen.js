@@ -1,12 +1,19 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View, ScrollView, StyleSheet, Text, SafeAreaView, TouchableOpacity, TextInput, ImageBackground, Image, Dimensions } from 'react-native';
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 
 const RewardScreen = () => {
   return (
-    <View>
-      <Text>RewardScreen</Text>
-    </View>
+    <SafeAreaView>
+      <Image source={require('../../../assets/placeholder/rewards-placeholder.png')} style={styles.image} resizeMode="cover"/>
+    </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  image: {
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+  }
+});
 
 export default RewardScreen

@@ -3,9 +3,15 @@ import React from 'react'
 
 const ShopScreen = () => {
   return (
-    <View>
-      <Text>ShopScreen</Text>
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <ImageBackground
+      source={require('../assets/placeholder/rewards-placeholder.png')}
+      style={styles.imageBackground}
+    />
+      {/* Your other components */}
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 

@@ -42,6 +42,14 @@ const AppStackNavigator = () => {
           <Drawer.Screen name = 'Drive with Hapag' component = { DriverScreen }/>
           <Drawer.Screen name = 'Terms and Conditions' component = { TermsConditionsScreen }/>
         </Drawer.Navigator>
+        <Stack.Navigator screenOptions = {{headerShown: false}}>
+            <Stack.Screen name = 'MealPlan' component = { MealPlanScreen }/>
+            <Stack.Screen name = 'Meal' component = { MealScreen }/>
+            <Stack.Screen name = 'Recipe' component = { RecipeScreen }/>
+            <Stack.Screen name = 'Cart' component = { CartScreen }/>
+            <Stack.Screen name = 'CheckOut' component = { CheckOutScreen }/>
+        </Stack.Navigator>
+
     </NavigationContainer>
 
   )
