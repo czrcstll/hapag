@@ -11,8 +11,7 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 
-const HealthPlanScreen = () => {
-  const navigation = useNavigation();
+const HealthPlanScreen = ({navigation, route}) => {
 
   const goToNextScreen = () => {
     navigation.navigate('Home');

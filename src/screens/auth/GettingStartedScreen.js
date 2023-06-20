@@ -1,15 +1,12 @@
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  SafeAreaView,
-  useWindowDimensions
-} from 'react-native';
-import CustomInput from '../../components/CustomInput/CustomInput';
-import CustomButton from '../../components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
+import CustomButton from '../../components/CustomButton/CustomButton';
 
 const GettingStartedScreen = () => {
 

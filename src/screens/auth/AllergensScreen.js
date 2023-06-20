@@ -11,18 +11,63 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 
-const AllergensScreen = () => {
+const AllergensScreen = ({navigation, route}) => {
+  const [ allergen, setAllergen ] = useState('');
 
-  const navigation = useNavigation();
   const goToNextScreen = () => {
-    navigation.navigate('HealthPlan');
+    console.warn('You chose ' + allergen);
+    navigation.navigate('HealthPlan', {
+      username: route.params.username,
+      email: route.params.email,
+      phone: route.params.phone,
+      password: route.params.password,
+      verification: route.params.verification,
+      age: route.params.age,
+      sex: route.params.sex,
+      birthday: route.params.birthday,
+      religion: route.params.religion,
+      height: route.params.height,
+      weight: route.params.weight,
+      physical: route.params.physical,
+      comorbidity: route.params.comorbidity,
+      allergen: allergen
+    });
   }
 
   const goBack = () => {
     navigation.goBack();
   }
 
-  const temp = () => {
+  const temp = (event) => {
+    if(allergen == ''){
+      if(event == 1){
+        setAllergen("Egg");
+      } else if (event == 2){
+        setAllergen("Nuts");
+      } else if (event == 3){
+        setAllergen("Gluten");
+      } else if (event == 4){
+        setAllergen("Milk");
+      } else if (event == 5){
+        setAllergen("Soy");
+      } else {
+        setAllergen("Shellfish");
+      }
+    }else{
+      if(event == 1){
+        setAllergen(allergen + ", Egg");
+      } else if (event == 2){
+        setAllergen(allergen + ", Nuts");
+      } else if (event == 3){
+        setAllergen(allergen + ", Gluten");
+      } else if (event == 4){
+        setAllergen(allergen + ", Milk");
+      } else if (event == 5){
+        setAllergen(allergen + ", Soy");
+      } else {
+        setAllergen(allergen + ", Shellfish");
+      }
+    }
   }
 
   return (
@@ -32,12 +77,12 @@ const AllergensScreen = () => {
         <Text style={styles.subHeadingText}>Let us tailor your food choices according to your conditions</Text>
 
         <Text style={styles.subHeadingText}>Select all that applies</Text>
-        <CustomButton text="Egg" onPress={temp} type="TERTIARY" />
-        <CustomButton text="Nuts" onPress={temp} type="TERTIARY" />
-        <CustomButton text="Gluten" onPress={temp} type="TERTIARY" />
-        <CustomButton text="Milk" onPress={temp} type="TERTIARY" />
-        <CustomButton text="Soy" onPress={temp} type="TERTIARY" />
-        <CustomButton text="Shellfish" onPress={temp} type="TERTIARY" />
+        <CustomButton text="Egg" onPress={() => temp(1)} type="TERTIARY" />
+        <CustomButton text="Nuts" onPress={() => temp(2)} type="TERTIARY" />
+        <CustomButton text="Gluten" onPress={() => temp(3)} type="TERTIARY" />
+        <CustomButton text="Milk" onPress={() => temp(4)} type="TERTIARY" />
+        <CustomButton text="Soy" onPress={() => temp(5)} type="TERTIARY" />
+        <CustomButton text="Shellfish" onPress={() => temp(6)} type="TERTIARY" />
 
         <View style={styles.buttonWrapper}>
           <CustomButton text="Back" onPress={goBack} type="SECONDARY" />

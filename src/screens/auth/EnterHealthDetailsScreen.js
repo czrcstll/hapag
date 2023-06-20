@@ -11,20 +11,29 @@ import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 
-const EnterHealthDetailsScreen = () => {
-  const navigation = useNavigation();
+const EnterHealthDetailsScreen = ({navigation, route}) => {
 
-  const { age, setAge } = useState('');
-
-  const { sex, setSex } = useState('');
-  const { birthday, setBirthday } = useState('');
-  const { religion, setReligion } = useState('');
-
-  const { height, setHeight } = useState('');
-  const { weight, setWeight } = useState('');
+  const [ age, setAge ] = useState('');
+  const [ sex, setSex ] = useState('');
+  const [ birthday, setBirthday ] = useState('');
+  const [ religion, setReligion ] = useState('');
+  const [ height, setHeight ] = useState('');
+  const [ weight, setWeight ] = useState('');
 
   const goToNextScreen = () => {
-    navigation.navigate('PhysicalFactor');
+    navigation.navigate('PhysicalFactor', {
+      username: route.params.username,
+      email: route.params.email,
+      phone: route.params.phone,
+      password: route.params.password,
+      verification: route.params.verification,
+      age: age,
+      sex: sex,
+      birthday: birthday,
+      religion: religion,
+      height: height,
+      weight: weight
+    });
   }
 
   const goBack = () => {
@@ -37,14 +46,14 @@ const EnterHealthDetailsScreen = () => {
         <Text style={styles.headerText}>Enter your health details</Text>
         <Text style={styles.subHeadingText}>Get customized meal recommendations according to your needs</Text>
 
-        <CustomInput placeholder="Age" value={age} setValue={setAge} />
-        <CustomInput placeholder="Sex" value={sex} setValue={setSex} />
-        <CustomInput placeholder="Birthday" value={birthday} setValue={setBirthday} />
-        <CustomInput placeholder="Religion" value={religion} setValue={setReligion} />
+        <CustomInput placeholder="Age" value={age} setValue={setAge} onChangeText={(age) => setAge(age)}  />
+        <CustomInput placeholder="Sex" value={sex} setValue={setSex} onChangeText={(sex) => setSex(sex)} />
+        <CustomInput placeholder="Birthday" value={birthday} setValue={setBirthday}  onChangeText={(birthday) => setBirthday(birthday)} />
+        <CustomInput placeholder="Religion" value={religion} setValue={setReligion} onChangeText={(religion) => setReligion(religion)} />
 
         <View style={styles.measurementsWrapper}>
-          <CustomInput placeholder="Height(cm)" value={height} setValue={setHeight} />
-          <CustomInput placeholder="Weight(kg)" value={weight} setValue={setWeight} />
+          <CustomInput placeholder="Height(cm)" value={height} setValue={setHeight} onChangeText={(height) => setHeight(height)} />
+          <CustomInput placeholder="Weight(kg)" value={weight} setValue={setWeight} onChangeText={(weight) => setWeight(weight)} />
         </View>
 
         <CustomButton text="Back" onPress={goBack} type="SECONDARY" />

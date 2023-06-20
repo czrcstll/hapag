@@ -1,24 +1,30 @@
-import React, {useState} from 'react';
-import { 
-  View, 
-  Text,
-  Image,
-  StyleSheet,
+import React, { useState } from 'react';
+import {
   SafeAreaView,
-  useWindowDimensions
- } from 'react-native';
- import CustomInput from '../../components/CustomInput/CustomInput';
- import CustomButton from '../../components/CustomButton/CustomButton';
- import { useNavigation } from '@react-navigation/native';
-const ConfirmEmailScreen = () => {
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
+import CustomButton from '../../components/CustomButton/CustomButton';
+import CustomInput from '../../components/CustomInput/CustomInput';
+const ConfirmEmailScreen = ({navigation, route}) => {
 
-    const navigation = useNavigation();
-    const {verificationCode, setVerificationCode} = useState('');
+    const [verificationCode, setVerificationCode] = useState('');
 
     const onVerifiedPressed = () =>{
+      if(verificationCode == 'Aaa'){
         console.warn('Congratulations for verifying your email!');
-        navigation.navigate('HealthDetails');
+        navigation.navigate('HealthDetails', {
+          username: route.params.username,
+          email: route.params.email,
+          phone: route.params.phone,
+          password: route.params.password,
+          verification: verificationCode
+        });
+      }else{
+        console.warn('Wrong verification!');
       }
+    }
 
       const onResendPressed = () =>{
         console.warn('We have sent a new code to your email!');
@@ -27,9 +33,9 @@ const ConfirmEmailScreen = () => {
     <SafeAreaView>
         <View style = {styles.root}>
         <CustomButton text = "Back to Sign In" type = "SECONDARY" onPress = {onResendPressed}/>
-        <Text style = {styles.headerText}>Email Verification</Text>
-        <Text style = {styles.subHeadingText}>Enter the code we just sent to your email address to confirm your account verification</Text>
-        <CustomInput placeholder = "Enter Code" value = {verificationCode} setValue = {setVerificationCode}/>
+        <Text style = {styles.headerText}>Email Verification </Text>
+        <Text style = {styles.subHeadingText}>Hi {route.params.username}!{"\n"}Enter the code we just sent to {route.params.email}{"\n"} to confirm your account verification</Text>
+        <CustomInput placeholder = "Enter Code" value = {verificationCode} setValue = {setVerificationCode} onChangeText={(verificationCode) => setVerificationCode(verificationCode)}/>
         </View>
         <CustomButton text = "Resend Code" type = "SECONDARY" onPress = {onResendPressed}/>
         <CustomButton text = "Verify" onPress = {onVerifiedPressed}/>

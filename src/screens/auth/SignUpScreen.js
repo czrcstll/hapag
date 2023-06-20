@@ -1,27 +1,22 @@
 import React, { useState } from 'react';
 import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
   SafeAreaView,
-  useWindowDimensions
+  StyleSheet,
+  Text,
+  View
 } from 'react-native';
-import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
-import { useNavigation } from '@react-navigation/native';
+import CustomInput from '../../components/CustomInput/CustomInput';
 
-const SignUpScreen = () => {
-  const navigation = useNavigation();
-  
-  const { username, setUsername } = useState('');
-  const { email, setEmail } = useState('');
-  const { phone, setPhone } = useState('');
-  const { password, setPassword } = useState('');
+const SignUpScreen = ({navigation}) => {
 
+  const [ username, setUsername ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ phone, setPhone ] = useState('');
+  const [ password, setPassword ] = useState('');
 
   const goToNextScreen = () => {
-    navigation.navigate('ConfirmEmail');
+    navigation.navigate('ConfirmEmail', {username: username, email: email, phone: phone, password: password});
   }
 
   const goBack = () => {
@@ -33,10 +28,10 @@ const SignUpScreen = () => {
       <View style={styles.root}>
         <Text style={styles.headerText}>Getting Started</Text>
         <Text style={styles.subHeadingText}>Create an account for a complete experience</Text>
-        <CustomInput placeholder="Username" value={username} setValue={setUsername} />
-        <CustomInput placeholder="Email" value={email} setValue={setEmail} />
-        <CustomInput placeholder="Phone Number" value={phone} setValue={setPhone} />
-        <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} />
+        <CustomInput placeholder="Username" value={username} setValue={setUsername} onChangeText={(username) => setUsername(username)} />
+        <CustomInput placeholder="Email" value={email} setValue={setEmail} onChangeText={(email) => setEmail(email)} />
+        <CustomInput placeholder="Phone Number" value={phone} setValue={setPhone} onChangeText={(phone) => setPhone(phone)} />
+        <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true} onChangeText={(password) => setPassword(password)} />
         <View style={styles.buttonWrapper}>
           <CustomButton text="Sign up later" onPress={goBack} type="SECONDARY" />
           <CustomButton text="Next" onPress={goToNextScreen} />

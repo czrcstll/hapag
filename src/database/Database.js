@@ -141,6 +141,7 @@ const createTables = () => {
           `CREATE TABLE IF NOT EXISTS Ingredients(
             Ingredient_Id INTEGER PRIMARY KEY,
             Ingredient_Type_Id INTEGER,
+            Ingredient_Name NVARCHAR(200) NOT NULL,
             Ingredient_Energy INTEGER NOT NULL,
             Ingredient_Carbohydrate INTEGER NOT NULL,
             Ingredient_Protein INTEGER NOT NULL,
@@ -170,24 +171,6 @@ const createTables = () => {
             IngredientPrices_PriceUnit INTEGER NOT NULL,
             IngredientPrices_Measurement INTEGER NOT NULL,
             FOREIGN KEY(Ingredient_Id) REFERENCES Ingredients(Ingredient_Id)
-          );`,
-          [],
-          () => {
-            resolve('Database opened or created successfully.');
-          },
-          (_, error) => {
-            reject(new Error(`Failed to create database tables: ${error.message}`));
-          }
-        );
-
-        transaction.executeSql(
-          `CREATE TABLE IF NOT EXISTS Meal_Ingredients(
-            Meal_Ingredients_Id	INTEGER PRIMARY KEY,
-            Meal_Id INTEGER,
-            Ingredient_Id INTEGER,
-            Meal_Ingredient_Serving INTEGER NOT NULL,
-            FOREIGN KEY(Ingredient_Id) REFERENCES Ingredients(Ingredient_Id)
-            FOREIGN KEY(Meal_Id) REFERENCES Meals(Meal_Id)
           );`,
           [],
           () => {

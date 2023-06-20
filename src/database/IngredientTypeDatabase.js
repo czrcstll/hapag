@@ -1,4 +1,4 @@
-import database from '../database/Database';
+import database from './Database';
 
 const db = database.openDatabase();
 
