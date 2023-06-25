@@ -22,8 +22,8 @@ const MealPlanScreen = () => {
               <View style={{ flex: 1, alignItems: 'flex-start', justifyContent: 'center' }}>
                 <Ionicons name="ios-menu" size={30} color="#4A4A6A" />
               </View>
-              <View style={{ flex: 4, alignItems: 'flex-end', justifyContent: 'center', padding: 10 }}>
-                <Text style={{ color: '#4A4A6A' }}>April 15, 2023</Text>
+              <View style={{ flex: 4, alignItems: 'center', justifyContent: 'center' }}>
+                <Text style={{ color: '#4A4A6A', fontWeight: 'bold' }}>April 15, 2023</Text>
               </View>
               <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
                 <TouchableOpacity style={styles.roundedWhite}>
@@ -32,13 +32,13 @@ const MealPlanScreen = () => {
               </View>
             </View>
 
-            <View style={{ margin: 15 }}>
+            <View style={{ marginTop: 20 }}>
               <Text style={{ textAlign: 'center', color: '#4A4A6A' }}>Friday</Text>
               <Text style={{ textAlign: 'center', color: '#44AF69', fontSize: 30, fontWeight: 'bold' }}>1500</Text>
               <Text style={{ textAlign: 'center', color: '#44AF69' }}>Calories</Text>
             </View>
 
-            <Bar progress={0.3} width={null} height={10} color='#F6A43E' unfilledColor='#CDCCCA' borderWidth={0} />
+            <Bar style={{ marginTop: 15 }} progress={0.3} width={null} height={10} color='#F6A43E' unfilledColor='#CDCCCA' borderWidth={0} />
 
             <View style={{ marginTop: 15, flexDirection: 'row' }}>
               <View style={{ flex: 1 }}>
@@ -68,7 +68,7 @@ const MealPlanScreen = () => {
           </View>
 
           <View style={styles.mealPlanSection}>
-            <Text style={{ textAlign: 'center', fontSize: 24, fontWeight: 'bold' }}>Meal Plan</Text>
+            <Text style={{ textAlign: 'center', fontSize: 22, fontWeight: 'bold' }}>Meal Plan</Text>
 
             <View style={[styles.shadow, styles.roundedWhite, { marginTop: 15, padding: 15, flexDirection: 'row' }]}>
               <View style={{ flex: 5 }}>

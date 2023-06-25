@@ -29,7 +29,7 @@ const PaymentMethodScreen = () => {
           </TouchableOpacity>
         </View>
 
-        <Text style={{ marginTop: 15, textAlign: 'center', fontSize: 24, fontWeight: 'bold' }}>Payment Method</Text>
+        <Text style={{ marginTop: 20, textAlign: 'center', fontSize: 22, fontWeight: 'bold' }}>Payment Method</Text>
 
         <RadioButton.Group value={checked}>
           <View style={[styles.shadow, styles.roundedWhite, { marginTop: 30, padding: 15, flexDirection: 'row' }]}>
@@ -38,7 +38,7 @@ const PaymentMethodScreen = () => {
             </View>
             <View style={{ flex: 4, paddingStart: 15, justifyContent: 'center' }}>
               <Text style={styles.boldText}>Gcash</Text>
-              <Text style={{ color: '#8E8EA9' }}>63-9****57751</Text>
+              <Text style={{ color: '#4A4A6A' }}>63-9****57751</Text>
             </View>
             <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
                 <Entypo name="pencil" size={20} color="#50269D" />

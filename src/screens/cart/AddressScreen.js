@@ -29,7 +29,7 @@ const AddressScreen = () => {
           </TouchableOpacity>
         </View>
 
-        <Text style={{ marginTop: 15, textAlign: 'center', fontSize: 24, fontWeight: 'bold' }}>Addresses</Text>
+        <Text style={{ marginTop: 20, textAlign: 'center', fontSize: 22, fontWeight: 'bold' }}>Addresses</Text>
 
         <RadioButton.Group value={checked}>
           <View style={[styles.shadow, styles.roundedWhite, { marginTop: 30, padding: 15, flexDirection: 'row' }]}>
@@ -38,7 +38,7 @@ const AddressScreen = () => {
             </View>
             <View style={{ flex: 4, paddingStart: 15, justifyContent: 'center' }}>
               <Text style={styles.boldText}>JMK Clinic</Text>
-              <Text style={{ color: '#8E8EA9' }}>Pasig City</Text>
+              <Text style={{ color: '#4A4A6A' }}>Pasig City</Text>
             </View>
             <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
                 <Entypo name="pencil" size={20} color="#50269D" />
@@ -51,7 +51,7 @@ const AddressScreen = () => {
             </View>
             <View style={{ flex: 4, paddingStart: 15, justifyContent: 'center' }}>
               <Text style={styles.boldText}>70 Apollo St.</Text>
-              <Text style={{ color: '#8E8EA9' }}>Cainta, Rizal</Text>
+              <Text style={{ color: '#4A4A6A' }}>Cainta, Rizal</Text>
             </View>
             <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
                 <Entypo name="pencil" size={20} color="#50269D" />

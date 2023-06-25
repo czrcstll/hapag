@@ -5,7 +5,7 @@ import { AntDesign, Ionicons, FontAwesome5, Feather, Entypo} from '@expo/vector-
 import HomeScreen from '../screens/home/HomeScreen';
 import MealPlanScreen from '../screens/home/MealPlanScreen';
 import ShopScreen from '../screens/home/ShopScreen';
-import OrderScreen from '../screens/home/OrderScreen';
+import RewardScreen from '../screens/home/RewardScreen';
 import EducationalHubScreen from '../screens/home/EducationHubScreen';
 
 const Tab = createBottomTabNavigator();
@@ -33,7 +33,7 @@ const TabNavigator = () => {
                     <FontAwesome5 name = 'utensils' color = {color} size = {size}/>
             ) 
             }}/>
-                <Tab.Screen name = 'Order' component={ OrderScreen }
+                <Tab.Screen name = 'Rewards' component={ RewardScreen }
             options = {{tabBarIcon: ({color, size}) => (
                     <Feather name = 'shopping-bag' color = {color} size = {size}/>
             ) 

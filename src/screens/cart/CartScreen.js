@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, StyleSheet, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import { View, ScrollView, StyleSheet, Text, SafeAreaView, TouchableOpacity, Image, TextInput } from 'react-native';
 import { AntDesign, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import CustomButton from '../../components/CustomButton/CustomButton';
@@ -26,7 +26,7 @@ const CartScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={{ flexGrow: 1, padding: 25 }}>
+      <ScrollView style={{ padding: 25 }}>
 
         <View style={{ alignItems: 'flex-start' }}>
           <TouchableOpacity style={[styles.roundedWhite, { padding: 10 }]} onPress={goBack}>
@@ -34,83 +34,93 @@ const CartScreen = () => {
           </TouchableOpacity>
         </View>
 
-        <Text style={{ marginTop: 15, textAlign: 'center', fontSize: 24, fontWeight: 'bold' }}>Cart</Text>
+        <Text style={{ marginTop: 20, textAlign: 'center', fontSize: 22, fontWeight: "bold" }}>Cart</Text>
 
-        <View style={[styles.shadow, styles.roundedWhite, { marginTop: 30, padding: 15, flexDirection: 'row' }]}>
-          <View style={{ flex: 2, justifyContent: 'center' }}>
+        <View style={[styles.shadow, styles.roundedWhite, { marginTop: 15, padding: 15, flexDirection: 'row' }]}>
+          <View style={{ flex: 1, justifyContent: 'center' }}>
             <Image source={require('../../../assets/images/placeholder.jpg')} style={{ aspectRatio: 1, width: '100%', borderRadius: 50 }} />
           </View>
-          <View style={{ flex: 5, paddingStart: 15, justifyContent: 'center' }}>
+          <View style={{ flex: 2, paddingStart: 15, justifyContent: 'center' }}>
             <Text style={styles.boldText}>Rice</Text>
-            <Text style={{ color: '#8E8EA9' }}>50 grams</Text>
-            <Text style={{ color: '#F6A43E', fontWeight: 'bold', fontSize: 18, marginTop: 5 }}>₱50</Text>
+            <Text style={{ color: '#4A4A6A' }}>50 grams</Text>
+            <Text style={{ color: '#F6A43E', fontWeight: "bold", fontSize: 18, marginTop: 5 }}>50 PHP</Text>
           </View>
-          <View style={{ flex: 2, alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row' }}>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-end', flexDirection: 'row' }}>
             <TouchableOpacity>
-              <AntDesign name="minuscircle" size={20} color="#50269D" />
+              <AntDesign name="minuscircle" size={18} color="#50269D" />
             </TouchableOpacity>
-            <Text style={{ color: '#3A2D78', marginHorizontal: 5, fontWeight: 'bold', fontSize: 20 }}>1</Text>
+            <Text style={{ color: '#3A2D78', marginHorizontal: 5, fontWeight: "bold", fontSize: 18 }}>1</Text>
             <TouchableOpacity>
-              <AntDesign name="pluscircle" size={20} color="#50269D" />
+              <AntDesign name="pluscircle" size={18} color="#50269D" />
             </TouchableOpacity>
           </View>
         </View>
 
-        <View style={{ marginTop: 30, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={{ color: '#F6A43E', marginEnd: 20, fontWeight: 'bold', fontSize: 16 }}>Add Tip for Drivers </Text>
-          <Text style={[{ textAlign: 'center', color: '#6F6F8E', fontWeight: 'bold' }, styles.roundedWhite]}>20 PHP</Text>
+        <View style={[{ marginTop: 15, backgroundColor: 'white', borderRadius: 15 }, styles.shadow]}>
+          <View style={{ padding: 15, backgroundColor: '#F6A43E', borderRadius: 15 }}>
+            <Text style={{ color: 'white', fontWeight: "bold", fontSize: 16 }}>Payment Details</Text>
+          </View>
+          <View style={{ paddingHorizontal: 30, paddingVertical: 15 }}>
+            <View style={{ flexDirection: 'row' }}>
+              <View style={{ flex: 2, justifyContent: 'center' }}>
+                <Text style={{ color: '#4A4A6A', fontWeight: '', fontSize: 14 }}>Add tip for drivers</Text>
+              </View>
+              <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
+                <TextInput style={{ backgroundColor: '#F7F7F7', width: 80, color: '#4A4A6A', padding: 2, textAlign: 'center', borderRadius: 15 }} placeholder='0 PHP'></TextInput>
+              </View>
+            </View>
+
+            <View style={{ flexDirection: 'row', marginTop: 5 }}>
+              <View style={{ flex: 2, justifyContent: 'center' }}>
+                <Text style={{ color: '#4A4A6A', fontWeight: '', fontSize: 14 }}>Add tip for farmers</Text>
+              </View>
+              <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
+                <TextInput style={{ backgroundColor: '#F7F7F7', width: 80, color: '#4A4A6A', padding: 2, textAlign: 'center', borderRadius: 15 }} placeholder='0 PHP'></TextInput>
+              </View>
+            </View>
+
+            <View style={{ flexDirection: 'row', marginTop: 15 }}>
+              <View style={{ flex: 2, justifyContent: 'center' }}>
+                <Text style={{ color: '#4A4A6A', fontWeight: '', fontSize: 14 }}>Delivery fee</Text>
+              </View>
+              <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
+                <Text style={{ color: '#4A4A6A', fontWeight: '', fontSize: 14}}>39 PHP</Text>
+              </View>
+            </View>
+
+            <View style={{ flexDirection: 'row', marginTop: 5 }}>
+              <View style={{ flex: 2, justifyContent: 'center' }}>
+                <Text style={{ color: '#4A4A6A', fontWeight: "bold", fontSize: 14 }}>Total payment</Text>
+              </View>
+              <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
+                <Text style={{ color: '#4A4A6A', fontWeight: "bold", fontSize: 14}}>39 PHP</Text>
+              </View>
+            </View>
+          </View>
         </View>
 
-        <View style={{ marginTop: 5, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={{ color: '#F6A43E', marginEnd: 20, fontWeight: 'bold', fontSize: 16 }}>Add Tip for Farmers</Text>
-          <Text style={[{ textAlign: 'center', color: '#6F6F8E', fontWeight: 'bold' }, styles.roundedWhite]}>20 PHP</Text>
-        </View>
-
-        <View style={{ marginTop: 15, paddingHorizontal: 60, flexDirection: 'row' }}>
-          <View style={{ flex: 2 }}>
-            <Text style={{ color: '#666687', fontSize: 16 }}>Sub Total</Text>
-          </View>
-          <View style={{ flex: 1 }}>
-            <Text style={{ color: '#666687', fontSize: 16, fontWeight: 'bold' }}>90 PHP</Text>
+        <View style={[{ marginTop: 15, borderRadius: 15, backgroundColor: 'white' }, styles.shadow]}>
+          <View style={{ padding: 20, flexDirection: 'row' }}>
+            <View style={{ flex: 3, flexDirection: 'row', alignItems: 'center' }}>
+              <Text style={{ color: '#4A4A6A', fontWeight: "bold", marginStart: 5 }}>Apply a voucher</Text>
+            </View>
+            <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
+              <AntDesign name="right" size={20} color="#D9D9D9" onPress={onPressAddress}/>
+            </View>
           </View>
         </View>
 
-        <View style={{ marginTop: 5, paddingHorizontal: 60, flexDirection: 'row' }}>
-          <View style={{ flex: 2 }}>
-            <Text style={{ color: '#666687', fontSize: 16 }}>Delivery Fee</Text>
-          </View>
-          <View style={{ flex: 1 }}>
-            <Text style={{ color: '#666687', fontSize: 16, fontWeight: 'bold' }}>39 PHP</Text>
-          </View>
-        </View>
-
-        <View style={{ margin: 10, width: '75%', height: 2, backgroundColor: '#D9D9D9', alignSelf: 'center' }}></View>
-
-        <View style={{ paddingHorizontal: 60, flexDirection: 'row' }}>
-          <View style={{ flex: 2 }}>
-            <Text style={{ color: '#50269D', fontSize: 18, fontWeight: 'bold' }}>Total</Text>
-          </View>
-          <View style={{ flex: 1 }}>
-            <Text style={{ color: '#50269D', fontSize: 18, fontWeight: 'bold' }}>129 PHP</Text>
-          </View>
-        </View>
-
-        <View style={{ marginTop: 15, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-          <AntDesign name="tagso" size={24} color="#F6A43E" />
-          <Text style={{ marginStart: 5, color: '#F6A43E', marginEnd: 20, fontWeight: 'bold', fontSize: 16 }}>Apply a vouhcer</Text>
-        </View>
-
-        <View style={{ marginTop: 30, borderRadius: 15, backgroundColor: 'white' }}>
+        <View style={[{ marginTop: 15, borderRadius: 15, backgroundColor: 'white' }, styles.shadow]}>
           <View style={{ padding: 20, flexDirection: 'row' }}>
             <View style={{ flex: 3 }}>
-              <Text style={{ color: '#8E8EA9', fontWeight: 'bold' }}>Your delivery address</Text>
+              <Text style={{ color: '#4A4A6A', fontWeight: "bold" }}>Your delivery address</Text>
               <View style={{ flexDirection: 'row', marginTop: 3, alignItems: 'center' }}>
-                <Ionicons name="location-outline" size={14} color="#8E8EA9" />
-                <Text style={{ color: '#8E8EA9' }}> JMK Clinic, Pasig City</Text>
+                <Ionicons name="location-outline" size={14} color="#4A4A6A" />
+                <Text style={{ color: '#4A4A6A' }}> JMK Clinic, Pasig City</Text>
               </View>
             </View>
             <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
-              <AntDesign name="right" size={20} color="#666687" onPress={onPressAddress}/>
+              <AntDesign name="right" size={20} color="#D9D9D9" onPress={onPressAddress}/>
             </View>
           </View>
 
@@ -118,23 +128,23 @@ const CartScreen = () => {
 
           <View style={{ padding: 20, flexDirection: 'row' }}>
             <View style={{ flex: 3 }}>
-              <Text style={{ color: '#8E8EA9', fontWeight: 'bold' }}>Payment Method</Text>
+              <Text style={{ color: '#4A4A6A', fontWeight: "bold" }}>Payment method</Text>
               <View style={{ flexDirection: 'row', marginTop: 3, alignItems: 'center' }}>
-                <AntDesign name="wallet" size={14} color="#8E8EA9" />
-                <Text style={{ color: '#8E8EA9' }}> Gcash</Text>
+                <AntDesign name="wallet" size={14} color="#4A4A6A" />
+                <Text style={{ color: '#4A4A6A' }}> Gcash</Text>
               </View>
             </View>
             <View style={{ flex: 1, alignItems: 'flex-end', justifyContent: 'center' }}>
-              <AntDesign name="right" size={20} color="#666687" onPress={onPressPayment}/>
+              <AntDesign name="right" size={20} color="#D9D9D9" onPress={onPressPayment}/>
             </View>
           </View>
         </View>
 
-      </ScrollView>
+        <View style={{ alignItems: 'center', marginTop: 30 }}>
+          <CustomButton text="Proceed to checkout" onPress={onPressCheckout} />
+        </View>
 
-      <View style={[{ alignItems: 'center' }, styles.footer]}>
-        <CustomButton text="Proceed to Checkout" onPress={onPressCheckout} />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -145,7 +155,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F7F7F7',
   },
   boldText: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: '#50269D'
   },
   roundedWhite: {
@@ -158,13 +168,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 10,
-  },
-  footer: {
-    position: 'sticky',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    padding: 30
   }
 });
 
