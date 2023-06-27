@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
   SafeAreaView,
-  useWindowDimensions
+  StyleSheet,
+  Text,
+  View
 } from 'react-native';
-import CustomInput from '../../components/CustomInput/CustomInput';
 import CustomButton from '../../components/CustomButton/CustomButton';
-import { useNavigation } from '@react-navigation/native';
+import * as accountdb from '../../database/AccountDatabase';
 
 const HealthPlanScreen = ({navigation, route}) => {
+
+  // accountdb.accountInsert([route.params.email, route.params.username, route.params.password, route.params.phone])
+  //   .then((result) => {
+  //     console.log(result);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+
+  
+
 
   const goToNextScreen = () => {
     navigation.navigate('Home');

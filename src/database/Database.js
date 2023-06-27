@@ -360,7 +360,7 @@ const dropAllTables = () => {
 };
 
 
-export default {
+export {
   createTables,
   getAllTables,
   dropAllTables
