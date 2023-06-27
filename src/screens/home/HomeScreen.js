@@ -41,7 +41,7 @@ const HomeScreen = () => {
               <Text style={{ marginTop: 10, fontSize: 16, fontWeight: 'bold', color: '#F6A43E' }}>Select</Text>
             </View>
             <View style={{ flex: 1, justifyContent: 'center' }}>
-              <Image source={require('../../../assets/images/placeholder.jpg')} style={{ aspectRatio: 1, width: '100%', borderRadius: 70 }} />
+              <Image source={require('../../../assets/images/placeholder.jpg')} style={{ height: '100%', aspectRatio: 1, borderRadius: 70 }} />
             </View>
           </View>
 
@@ -51,7 +51,7 @@ const HomeScreen = () => {
               <Text style={{ marginTop: 10, fontSize: 16, fontWeight: 'bold', color: '#F6A43E' }}>Select</Text>
             </View>
             <View style={{ flex: 1, justifyContent: 'center' }}>
-              <Image source={require('../../../assets/images/placeholder.jpg')} style={{ aspectRatio: 1, width: '100%', borderRadius: 70 }} />
+              <Image source={require('../../../assets/images/placeholder.jpg')} style={{  height: '100%', aspectRatio: 1, borderRadius: 70 }} />
             </View>
           </View>
         </ScrollView>
@@ -77,7 +77,7 @@ const HomeScreen = () => {
         <ScrollView horizontal={true} contentContainerStyle={{ flexGrow: 1 }} style={{ marginTop: 15 }}>
           <View style={{ backgroundColor: 'white', borderRadius: 15, padding: 15, width: 150 }}>
             <View style={{ flex: 3, justifyContent: 'center' }}>
-              <Image source={require('../../../assets/images/placeholder.jpg')} style={{ aspectRatio: 1, width: '100%', borderRadius: 70 }} />
+              <Image source={require('../../../assets/images/placeholder.jpg')} style={{  height: '100%', aspectRatio: 1, borderRadius: 70 }} />
             </View>
             <View style={{ flex: 2, marginTop: 10 }}>
               <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#4A4A6A', textAlign: 'center' }}>Hearty Dumpling</Text>
@@ -87,20 +87,20 @@ const HomeScreen = () => {
 
           <View style={{ backgroundColor: 'white', borderRadius: 15, padding: 15, width: 150, marginStart: 15 }}>
             <View style={{ flex: 3, justifyContent: 'center' }}>
-              <Image source={require('../../../assets/images/placeholder.jpg')} style={{ aspectRatio: 1, width: '100%', borderRadius: 70 }} />
+              <Image source={require('../../../assets/images/placeholder.jpg')} style={{  height: '100%', aspectRatio: 1, borderRadius: 70 }} />
             </View>
             <View style={{ flex: 2, marginTop: 10 }}>
-              <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#4A4A6A', textAlign: 'center' }}>Hearty Dumpling</Text>
+              <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#4A4A6A', textAlign: 'center' }}>Tokwa Mechado</Text>
               <Text style={{ marginTop: 5, fontSize: 16, fontWeight: 'bold', color: '#44AF69', textAlign: 'center' }}>See More</Text>
             </View>
           </View>
 
           <View style={{ backgroundColor: 'white', borderRadius: 15, padding: 15, width: 150, marginStart: 15 }}>
             <View style={{ flex: 3, justifyContent: 'center' }}>
-              <Image source={require('../../../assets/images/placeholder.jpg')} style={{ aspectRatio: 1, width: '100%', borderRadius: 70 }} />
+              <Image source={require('../../../assets/images/placeholder.jpg')} style={{  height: '100%', aspectRatio: 1, borderRadius: 70 }} />
             </View>
             <View style={{ flex: 2, marginTop: 10 }}>
-              <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#4A4A6A', textAlign: 'center' }}>Hearty Dumpling</Text>
+              <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#4A4A6A', textAlign: 'center' }}>Squash Congee</Text>
               <Text style={{ marginTop: 5, fontSize: 16, fontWeight: 'bold', color: '#44AF69', textAlign: 'center' }}>See More</Text>
             </View>
           </View>
@@ -111,11 +111,11 @@ const HomeScreen = () => {
         <ScrollView horizontal={true} contentContainerStyle={{ flexGrow: 1 }} style={{ marginTop: 15 }}>
           <View style={{ flexDirection: 'row', backgroundColor: '#50269D', borderRadius: 15, padding: 15, width: 300, height: 125 }}>
             <View style={{ flex: 2, justifyContent: 'center', marginEnd: 5 }}>
-              <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>Explore different market choices</Text>
-              <Text style={{ marginTop: 10, fontSize: 16, fontWeight: 'bold', color: '#F6A43E' }}>Select</Text>
+              <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>Learn something new today</Text>
+              <Text style={{ marginTop: 10, fontSize: 16, fontWeight: 'bold', color: '#F6A43E' }}>Explore</Text>
             </View>
             <View style={{ flex: 1, justifyContent: 'center' }}>
-              <Image source={require('../../../assets/images/placeholder.jpg')} style={{ aspectRatio: 1, width: '100%', borderRadius: 70 }} />
+              <Image source={require('../../../assets/images/placeholder.jpg')} style={{  height: '100%', aspectRatio: 1, borderRadius: 70 }} />
             </View>
           </View>
 
@@ -125,7 +125,7 @@ const HomeScreen = () => {
               <Text style={{ marginTop: 10, fontSize: 16, fontWeight: 'bold', color: '#F6A43E' }}>Select</Text>
             </View>
             <View style={{ flex: 1, justifyContent: 'center' }}>
-              <Image source={require('../../../assets/images/placeholder.jpg')} style={{ aspectRatio: 1, width: '100%', borderRadius: 70 }} />
+              <Image source={require('../../../assets/images/placeholder.jpg')} style={{ aspectRatio: 1, height: 50, borderRadius: 70 }} />
             </View>
           </View>
         </ScrollView>
