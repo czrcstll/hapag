@@ -37,7 +37,13 @@ const EnterHealthDetailsScreen = ({navigation, route}) => {
   }
 
   const goBack = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate('SignUp',
+    {
+      username: route.params.username,
+      email: route.params.email,
+      phone: route.params.phone,
+      password: route.params.password
+    });
   }
 
   return (
