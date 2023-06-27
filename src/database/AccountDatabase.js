@@ -18,9 +18,9 @@ const accountInsert = async (values) => {
                 reject(error);
                 }
             );
-            });
         });
-    };
+    });
+};
 
 const accountSelectOneIdByEmail = (email) => {
     const db = SQLite.openDatabase("Hapag.db");
@@ -44,19 +44,47 @@ const accountSelectOneIdByEmail = (email) => {
     });
 };
 
-const accountSelectOneEmail = (email) => {
+const accountTruncateTable = () => {
     const db = SQLite.openDatabase("Hapag.db");
     return new Promise((resolve, reject) => {
         db.transaction(
             (transaction) => {
                 transaction.executeSql(
-                    'SELECT Account_Id FROM Accounts WHERE Account_Email = "?";',
+                    'DELETE FROM Accounts;',
+                    [],
+                    (_, result) => {
+                        resolve(result);
+                    },
+                    (error) => {
+                        reject(error);
+                    }
+                );
+            },
+        (error) => {
+            reject(new Error(`Failed to execute SELECT query: ${error.message}`));
+        });
+    });
+};
+
+const accountIfEmailExists = (email) => {
+    return new Promise((resolve, reject) => {
+        const db = SQLite.openDatabase("Hapag.db");
+        db.transaction(
+            (transaction) => {
+                transaction.executeSql(
+                    'SELECT * FROM Accounts WHERE Account_Email = ?;',
                     [email],
                     (_, result) => {
-                    resolve(result.rows._array);
+                        if (result.rows.length == 0) {
+                            console.log("true");
+                            resolve(true);
+                        } else {
+                            console.log("false");
+                            resolve(false);
+                        }
                     },
-                    (_, error) => {
-                    reject(new Error(`Failed to execute SELECT query: ${error.message}`));
+                    (error) => {
+                        reject(error);
                     }
                 );
             },
@@ -160,6 +188,8 @@ const accountUpdateQuery = async (id, db, data) => {
 export {
     accountInsert,
     accountSelectOneIdByEmail,
+    accountTruncateTable,
+    accountIfEmailExists,
     accountSelectQuery,
     accountInsertQuery,
     accountDeleteQuery,

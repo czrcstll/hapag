@@ -30,7 +30,13 @@ const PhysicalFactorScreen = ({navigation, route}) => {
   }
 
   const goBack = () => {
-    navigation.navigate('HealthDetails');
+    navigation.navigate('HealthDetails',{
+      username: route.params.username,
+      email: route.params.email,
+      phone: route.params.phone,
+      password: route.params.password,
+      verification: route.params.verification,
+    });
   }
 
   const temp = (event) => {

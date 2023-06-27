@@ -31,7 +31,19 @@ const ComorbiditiesScreen = ({navigation, route}) => {
   }
 
   const goBack = () => {
-    navigation.navigate('PhysicalFactor');
+    navigation.navigate('PhysicalFactor', {
+      username: route.params.username,
+      email: route.params.email,
+      phone: route.params.phone,
+      password: route.params.password,
+      verification: route.params.verification,
+      age: route.params.age,
+      sex: route.params.sex,
+      birthday: route.params.birthday,
+      religion: route.params.religion,
+      height: route.params.height,
+      weight: route.params.weight
+    });
   }
 
   const temp = (event) => {

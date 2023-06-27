@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import CustomButton from '../../components/CustomButton/CustomButton';
 import CustomInput from '../../components/CustomInput/CustomInput';
+import * as accountdb from '../../database/AccountDatabase';
 
 const SignUpScreen = ({navigation}) => {
 

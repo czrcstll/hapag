@@ -10,27 +10,53 @@ import * as accountdb from '../../database/AccountDatabase';
 
 const HealthPlanScreen = ({navigation, route}) => {
 
-  // accountdb.accountInsert([route.params.email, route.params.username, route.params.password, route.params.phone])
-  //   .then((result) => {
-  //     console.log(result);
-  //   })
-  //   .catch((error) => {
-  //     console.error(error);
-  //   });
-
-  
-
+  accountdb.accountInsert([route.params.email, route.params.username, route.params.password, route.params.phone])
+    .then((result) => {
+      console.log(result);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 
   const goToNextScreen = () => {
     navigation.navigate('Home');
   }
 
   const onSeePlan = () => {
-    navigation.navigate('HealthGoal');
+    navigation.navigate('HealthGoal', {
+      username: route.params.username,
+      email: route.params.email,
+      phone: route.params.phone,
+      password: route.params.password,
+      verification: route.params.verification,
+      age: route.params.age,
+      sex: route.params.sex,
+      birthday: route.params.birthday,
+      religion: route.params.religion,
+      height: route.params.height,
+      weight: route.params.weight,
+      physical: route.params.physical,
+      comorbidity: route.params.comorbidity,
+      allergen: route.params.allergen
+    });
   }
 
   const goBack = () => {
-    navigation.navigate('Allergens');
+    navigation.navigate('Allergens',{
+      username: route.params.username,
+      email: route.params.email,
+      phone: route.params.phone,
+      password: route.params.password,
+      verification: route.params.verification,
+      age: route.params.age,
+      sex: route.params.sex,
+      birthday: route.params.birthday,
+      religion: route.params.religion,
+      height: route.params.height,
+      weight: route.params.weight,
+      physical: route.params.physical,
+      comorbidity: route.params.comorbidity
+    });
   }
 
   return (
