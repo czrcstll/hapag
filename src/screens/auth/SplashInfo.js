@@ -1,44 +1,37 @@
-import { View, Text, SafeAreaView, ImageBackground } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, Image, StyleSheet, Dimensions } from 'react-native'
+import React, {useState} from 'react'
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
-const HapagTitle = (navigation) => {
-    let image = "/images/Splash Info - 1.png";
+const HapagTitle = () => {
+  const navigation = useNavigation();
 
-    
-  const goToNextScreen = () => {
-    if(image === "/images/Splash Info - 2.png"){
-        image = "/images/Splash Info - 3.png";
-    } else if (image === "/images/Splash Info - 3.png"){
-        navigation.navigate('GettingStarted');
+  const [image, setImage] = useState(require("../../../assets/images/SplashInfo1.png"));
+
+  const onTap = () => {
+    if (image === require("../../../assets/images/SplashInfo2.png")) {
+      setImage(require("../../../assets/images/SplashInfo3.png"));
+    } else if (image === require("../../../assets/images/SplashInfo3.png")) {
+      navigation.navigate('GettingStarted');
     } else {
-        image = "/images/Splash Info - 2.png";
+      setImage(require("../../../assets/images/SplashInfo2.png"));
     }
   }
 
   return (
-    <SafeAreaView style = {styles.root}>
-      <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-      <CustomButton text="Next" onPress={goToNextScreen} />
-      </ImageBackground>
-    </SafeAreaView>
+    <TouchableOpacity onPress={onTap}>
+      <Image source={image} resizeMode="cover" style={styles.image} />
+    </TouchableOpacity>
   )
 }
 
+const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-
-    root: {
-      alignItems: 'center',
-      padding: 30,
-      marginTop: 60,
-    },
-
-    image: {
-        flex: 1,
-        justifyContent: 'center',
-    }
-
+  image: {
+    width: width,
+    height: height,
+  }
 });
-  
 
 export default HapagTitle
