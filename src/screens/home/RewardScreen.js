@@ -70,7 +70,7 @@ const RewardScreen = () => {
             <Text style={{ marginTop: 10, fontSize: 22, fontWeight: 'bold', color: 'white' }}>1500</Text>
           </View>
           <View style={{ flex: 1, justifyContent: 'center' }}>
-            <Image source={require('../../../assets/images/gift.png')} style={{ height: '100%' }} />
+            <Image source={require('../../../assets/images/gift.png')} style={{ height: 100, aspectRatio: 1 }} />
           </View>
         </View>
 
