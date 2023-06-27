@@ -1,29 +1,34 @@
-import { View, Text, SafeAreaView, ImageBackground } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { StyleSheet, ImageBackground, View, Text } from 'react-native';
 
 const HapagTitle = () => {
   return (
-    <SafeAreaView style = {styles.root}>
-      <ImageBackground source={"/images/Splash 1.png"} resizeMode="cover" style={styles.image}/>
-    </SafeAreaView>
-  )
-}
-
+    <ImageBackground
+      source={require('.images/splash-title.png')} // Replace with the path to your actual image
+      style={styles.backgroundImage}
+    >
+      <View style={styles.container}>
+        <Text style={styles.text}>Hello, React Native!</Text>
+      </View>
+    </ImageBackground>
+  );
+};
 
 const styles = StyleSheet.create({
-
-    root: {
-      alignItems: 'center',
-      padding: 30,
-      marginTop: 60,
-    },
-
-    image: {
-        flex: 1,
-        justifyContent: 'center',
-    }
-
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover', // or 'contain' if you want to maintain aspect ratio
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'white',
+  },
 });
-  
 
-export default HapagTitle
+export default HapagTitle;
