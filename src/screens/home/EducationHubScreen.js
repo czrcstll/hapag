@@ -49,7 +49,7 @@ const EducationHubScreen = () => {
           {data.map((item, index) => (
             <View key={index} style={{ backgroundColor: '#F6A43E', borderRadius: 15, padding: 15, width: 200, height: 400, marginRight: 10 }}>
               <View style={{ flex: 2, justifyContent: 'center' }}>
-                <Image source={item.image} style={{ aspectRatio: 1, width: '100%', borderRadius: 70 }} />
+                <Image source={item.image} style={{ height: 170, aspectRatio: 1, borderRadius: 70 }} />
               </View>
               <View style={{ flex: 1, justifyContent: 'center' }}>
                 <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'white' }}>{item.title}</Text>

@@ -1,29 +1,27 @@
-import { View, Text, SafeAreaView, ImageBackground } from 'react-native'
+import { View, Text, SafeAreaView, Image, StyleSheet, Dimensions } from 'react-native'
 import React from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 const HapagTitle = () => {
+
+  const navigation = useNavigation();
+
+  const onTap = () => {
+    navigation.navigate('SplashInfo');
+  }
+
   return (
-    <SafeAreaView style = {styles.root}>
-      <ImageBackground source={"/images/Splash 1.png"} resizeMode="cover" style={styles.image}/>
-    </SafeAreaView>
+    <Image source={require("../../../assets/images/Splash_1.png")} resizeMode="cover" style={styles.image} onPress={onTap} />
   )
 }
 
+const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-
-    root: {
-      alignItems: 'center',
-      padding: 30,
-      marginTop: 60,
-    },
-
-    image: {
-        flex: 1,
-        justifyContent: 'center',
-    }
-
+  image: {
+    width: width,
+    height: height,
+  }
 });
-  
 
 export default HapagTitle
