@@ -5,7 +5,11 @@ import { StyleSheet, ImageBackground, View, Text } from 'react-native';
 import { View, Text, SafeAreaView, Image, StyleSheet, Dimensions } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
+<<<<<<< HEAD
 >>>>>>> 914cfc1770ae1667e0ee540b2bfb6519db300809
+=======
+import { TouchableOpacity } from 'react-native-gesture-handler';
+>>>>>>> d8db09dd24adddee43dd8b2bac5b6e987504418f
 
 const HapagTitle = () => {
 
@@ -16,6 +20,7 @@ const HapagTitle = () => {
   }
 
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
     <ImageBackground
       source={require('.images/splash-title.png')} // Replace with the path to your actual image
@@ -48,6 +53,11 @@ const styles = StyleSheet.create({
 export default HapagTitle;
 =======
     <Image source={require("../../../assets/images/Splash_1.png")} resizeMode="cover" style={styles.image} onPress={onTap} />
+=======
+    <TouchableOpacity onPress={onTap}>
+      <Image source={require("../../../assets/images/Splash_1.png")} resizeMode="cover" style={styles.image} />
+    </TouchableOpacity>
+>>>>>>> d8db09dd24adddee43dd8b2bac5b6e987504418f
   )
 }
 
