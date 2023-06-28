@@ -79,7 +79,7 @@ const ComorbiditiesScreen = ({navigation, route}) => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, marginTop: 5 }}>
       <View style={styles.root}>
         <Text style={styles.headerText}>Do you have any existing comorbidity?</Text>
         <Text style={styles.subHeadingText}>Let us tailor your food choices according to your conditions</Text>

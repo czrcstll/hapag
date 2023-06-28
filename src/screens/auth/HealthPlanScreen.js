@@ -60,7 +60,7 @@ const HealthPlanScreen = ({navigation, route}) => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.root}>
         <Text style={styles.headerText}>It seems like we already know each other 🤝</Text>
         <Text style={styles.subHeadingText}>We have calculated your plan based on your bio metrics and physical factor. You can modify them anytime in your profile. However, we would like to remind you that the information on this app is not a substitute for professional medical advice, diagnosis or treatment.</Text>

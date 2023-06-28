@@ -47,7 +47,7 @@ const EnterHealthDetailsScreen = ({navigation, route}) => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, marginTop: 25 }}>
       <View style={styles.root}>
         <Text style={styles.headerText}>Enter your health details</Text>
         <Text style={styles.subHeadingText}>Get customized meal recommendations according to your needs</Text>
@@ -57,10 +57,9 @@ const EnterHealthDetailsScreen = ({navigation, route}) => {
         <CustomInput placeholder="Birthday" value={birthday} setValue={setBirthday}  onChangeText={(birthday) => setBirthday(birthday)} />
         <CustomInput placeholder="Religion" value={religion} setValue={setReligion} onChangeText={(religion) => setReligion(religion)} />
 
-        <View style={styles.measurementsWrapper}>
           <CustomInput placeholder="Height(cm)" value={height} setValue={setHeight} onChangeText={(height) => setHeight(height)} />
           <CustomInput placeholder="Weight(kg)" value={weight} setValue={setWeight} onChangeText={(weight) => setWeight(weight)} />
-        </View>
+
 
         <CustomButton text="Back" onPress={goBack} type="SECONDARY" />
         <CustomButton text="Next" onPress={goToNextScreen} />
@@ -74,6 +73,7 @@ const styles = StyleSheet.create({
 
   root: {
     alignItems: 'center',
+    alignContent: 'center',
     padding: 30,
     marginTop: 10
   },
@@ -101,11 +101,6 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     marginTop: '25%'
   },
-
-  measurementsWrapper: {
-    display: 'flex',
-    flexDirection: 'column'
-  }
 
 });
 

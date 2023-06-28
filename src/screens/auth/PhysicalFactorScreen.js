@@ -52,7 +52,7 @@ const PhysicalFactorScreen = ({navigation, route}) => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, marginTop: 25 }}>
       <View style={styles.root}>
         <Text style={styles.headerText}>How active are you?</Text>
         <Text style={styles.subHeadingText}>Select your activity level to get recommendations tailored to your lifestyle</Text>

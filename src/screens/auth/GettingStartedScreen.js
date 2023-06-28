@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
   },
 
   subHeadingText: {
+    marginTop: 10,
     fontSize: 18,
     color: '#8E8EA9',
     textAlign: 'center',

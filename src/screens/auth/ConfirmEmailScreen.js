@@ -26,20 +26,24 @@ const ConfirmEmailScreen = ({navigation, route}) => {
       }
     }
 
+    const goBack = () => {
+      navigation.navigate('LoginScreen');
+    }
       const onResendPressed = () =>{
         console.warn('We have sent a new code to your email!');
       }
   return (
-    <SafeAreaView>
+    <SafeAreaView style = {styles.container}>
         <View style = {styles.root}>
-        <CustomButton text = "Back to Sign In" type = "SECONDARY" onPress = {onResendPressed}/>
+
         <Text style = {styles.headerText}>Email Verification </Text>
         <Text style = {styles.subHeadingText}>Hi {route.params.username}!{"\n"}Enter the code we just sent to {route.params.email}{"\n"} to confirm your account verification</Text>
         <CustomInput placeholder = "Enter Code" value = {verificationCode} setValue = {setVerificationCode} onChangeText={(verificationCode) => setVerificationCode(verificationCode)}/>
         </View>
+        <CustomButton text = "Back to Sign In" type = "SECONDARY" onPress = {goBack}/>
         <CustomButton text = "Resend Code" type = "SECONDARY" onPress = {onResendPressed}/>
         <CustomButton text = "Verify" onPress = {onVerifiedPressed}/>
-    
+
 
     </SafeAreaView>
   )
@@ -49,8 +53,14 @@ const styles = StyleSheet.create({
 
   root: {
     alignItems: 'center',
+    alignContent: 'center',
     padding: 30,
     marginTop: 60
+  },
+
+  container: {
+    alignItems: 'center',
+    alignContent: 'center',
   },
 
   headerText: {
