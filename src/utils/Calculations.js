@@ -157,3 +157,23 @@ const Calculations = {
 };
 
 export default Calculations;
+
+//DEBUGGING
+"use client";
+
+import { createContext, useState } from 'react'
+
+export const MenuContext = createContext();
+
+const MenuContextProvider = ({children}) => {
+    const [open, setOpen] = useState(false);
+
+    const toggle = () => {
+        console.log('toggle clicked');
+        setOpen((prev) => !prev);
+    };
+
+    return <MenuContextProvider value = {{open, toggle}}>{children}</MenuContextProvider>
+};
+
+export default MenuContextProvider;
