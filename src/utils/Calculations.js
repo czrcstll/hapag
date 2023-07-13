@@ -177,3 +177,88 @@ const MenuContextProvider = ({children}) => {
 };
 
 export default MenuContextProvider;
+
+import React, { useState } from 'react';
+
+// SearchBar Component
+const SearchBar = ({ data, onSearch }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleInputChange = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+    search(query);
+  };
+
+  const search = (query) => {
+    const filteredResults = data.filter((item) =>
+      item.toLowerCase().includes(query.toLowerCase())
+    );
+    setSearchResults(filteredResults);
+    onSearch(filteredResults);
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={searchQuery}
+        onChange={handleInputChange}
+        placeholder="Search..."
+      />
+      {searchResults.length > 0 && (
+        <ul className="search-results">
+          {searchResults.map((result, index) => (
+            <li key={index}>{result}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+// File Browser Component
+const FileBrowser = ({ data }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrevClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? data.length - 1 : prevIndex - 1));
+  };
+
+  const handleNextClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === data.length - 1 ? 0 : prevIndex + 1));
+  };
+
+  return (
+    <div className="file-browser">
+      <button onClick={handlePrevClick}>&lt; Prev</button>
+      <span>{data[currentIndex]}</span>
+      <button onClick={handleNextClick}>Next &gt;</button>
+    </div>
+  );
+};
+
+// App Component
+const App = () => {
+  const data = ['File 1', 'File 2', 'File 3', 'File 4', 'File 5'];
+  const [filteredData, setFilteredData] = useState(data);
+
+  const handleSearch = (query) => {
+    const filteredResults = data.filter((item) =>
+      item.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredData(filteredResults);
+  };
+
+  return (
+    <div>
+      <h1>File Browser</h1>
+      <SearchBar data={data} onSearch={handleSearch} />
+      <FileBrowser data={filteredData} />
+    </div>
+  );
+};
+
+export default App;
+
