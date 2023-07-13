@@ -39,3 +39,42 @@ const OrderPlacedScreen = () => {
 };
 
 export default OrderPlacedScreen;
+
+import React, { useState } from 'react';
+
+// VolumeChanger Component
+const VolumeChanger = () => {
+  const [volume, setVolume] = useState(50);
+
+  const handleVolumeChange = (event) => {
+    const newVolume = parseInt(event.target.value, 10);
+    setVolume(newVolume);
+  };
+
+  return (
+    <div>
+      <div className="volume-display">{volume}</div>
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value={volume}
+        onChange={handleVolumeChange}
+        className="volume-adjuster"
+      />
+    </div>
+  );
+};
+
+// App Component
+const App = () => {
+  return (
+    <div>
+      <h1>Volume Changer</h1>
+      <VolumeChanger />
+    </div>
+  );
+};
+
+export default App;
+
