@@ -110,3 +110,94 @@ const styles = StyleSheet.create({
 });
 
 export default PaymentMethodScreen;
+
+
+import React, { useState, useContext } from 'react';
+
+// FileHandlingContext
+const FileHandlingContext = React.createContext();
+
+// FileHandlingProvider
+const FileHandlingProvider = ({ children }) => {
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  const handleFileChange = (file) => {
+    setSelectedFile(file);
+  };
+
+  return (
+    <FileHandlingContext.Provider value={{ selectedFile, handleFileChange }}>
+      {children}
+    </FileHandlingContext.Provider>
+  );
+};
+
+// RadioButtonGroup
+const RadioButtonGroup = ({ options }) => {
+  const fileHandlingContext = useContext(FileHandlingContext);
+  const { selectedFile, handleFileChange } = fileHandlingContext;
+
+  const handleOptionChange = (event) => {
+    const file = event.target.value;
+    handleFileChange(file);
+  };
+
+  return (
+    <div>
+      {options.map((option) => (
+        <label key={option.value}>
+          <input
+            type="radio"
+            name="fileOption"
+            value={option.value}
+            checked={selectedFile === option.value}
+            onChange={handleOptionChange}
+          />
+          <span>{option.icon}</span>
+          {option.label}
+        </label>
+      ))}
+    </div>
+  );
+};
+
+// App
+const App = () => {
+  const options = [
+    { value: 'file1', label: 'File 1', icon: <img src="/path/to/file1-icon.png" alt="File 1" /> },
+    { value: 'file2', label: 'File 2', icon: <img src="/path/to/file2-icon.png" alt="File 2" /> },
+  ];
+
+  return (
+    <FileHandlingProvider>
+      <div>
+        <h1>Radio Button Group</h1>
+        <RadioButtonGroup options={options} />
+        <FileViewer />
+      </div>
+    </FileHandlingProvider>
+  );
+};
+
+// FileViewer
+const FileViewer = () => {
+  const fileHandlingContext = useContext(FileHandlingContext);
+  const { selectedFile } = fileHandlingContext;
+
+  return (
+    <div>
+      <h2>Selected File</h2>
+      {selectedFile ? (
+        <div>
+          <span>{selectedFile}</span>
+          {/* Additional file content or components */}
+        </div>
+      ) : (
+        <div>No file selected</div>
+      )}
+    </div>
+  );
+};
+
+export default App;
+
