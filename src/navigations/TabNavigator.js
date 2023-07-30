@@ -49,3 +49,45 @@ const TabNavigator = () => {
 }
 
 export default TabNavigator
+
+//CRUD--- CREATE
+
+
+import { PrismaClient } from '@prisma/client';
+import { useEffect, useState } from 'react';
+
+const prisma = new PrismaClient();
+
+export default function Home() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const result = await prisma.yourModelName.findMany({
+      select: {
+        id: true,
+        data1: true,
+        data2: true,
+      },
+    });
+    setData(result);
+  };
+
+  return (
+    <div>
+      <h1>Prisma CRUD Example</h1>
+      <ul>
+        {data.map((item) => (
+          <li key={item.id}>
+            ID: {item.id}, Data1: {item.data1}, Data2: {item.data2}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+
