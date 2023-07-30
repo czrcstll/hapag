@@ -223,6 +223,52 @@ const BinaryChart = ({ binary1, binary2 }) => {
 
 export default BinaryChart;
 
+//CHART2
+
+import { useState } from 'react';
+import BinaryChart from '../components/BinaryChart';
+
+const Home = () => {
+  const [binary1, setBinary1] = useState('');
+  const [binary2, setBinary2] = useState('');
+
+  const handleBinary1Change = (e) => {
+    setBinary1(e.target.value);
+  };
+
+  const handleBinary2Change = (e) => {
+    setBinary2(e.target.value);
+  };
+
+  return (
+    <div>
+      <h1>Binary Chart App</h1>
+      <div>
+        <label htmlFor="binary1">Binary 1:</label>
+        <input
+          type="text"
+          id="binary1"
+          value={binary1}
+          onChange={handleBinary1Change}
+        />
+      </div>
+      <div>
+        <label htmlFor="binary2">Binary 2:</label>
+        <input
+          type="text"
+          id="binary2"
+          value={binary2}
+          onChange={handleBinary2Change}
+        />
+      </div>
+      <BinaryChart binary1={binary1} binary2={binary2} />
+    </div>
+  );
+};
+
+export default Home;
+
+
 
 
 
