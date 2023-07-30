@@ -90,4 +90,66 @@ export default function Home() {
   );
 }
 
+//CREATE UPDATE DELETE
+// ... (previous code)
+
+export default function Home() {
+  // ... (previous code)
+
+  const handleCreate = async () => {
+    const newData = {
+      data1: 'New Data 1',
+      data2: 'New Data 2',
+    };
+
+    const createdItem = await prisma.yourModelName.create({
+      data: newData,
+    });
+
+    setData([...data, createdItem]);
+  };
+
+  const handleUpdate = async (id) => {
+    const updatedItem = await prisma.yourModelName.update({
+      where: { id },
+      data: {
+        data1: 'Updated Data 1',
+        data2: 'Updated Data 2',
+      },
+    });
+
+    setData((prevData) =>
+      prevData.map((item) => (item.id === id ? updatedItem : item))
+    );
+  };
+
+  const handleDelete = async (id) => {
+    await prisma.yourModelName.delete({
+      where: { id },
+    });
+
+    setData((prevData) => prevData.filter((item) => item.id !== id));
+  };
+
+  // ... (previous code)
+
+  return (
+    <div>
+      <h1>Prisma CRUD Example</h1>
+      <button onClick={handleCreate}>Create</button>
+      <ul>
+        {data.map((item) => (
+          <li key={item.id}>
+            ID: {item.id}, Data1: {item.data1}, Data2: {item.data2}
+            <button onClick={() => handleUpdate(item.id)}>Update</button>
+            <button onClick={() => handleDelete(item.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+
+
 
