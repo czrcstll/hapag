@@ -150,6 +150,80 @@ export default function Home() {
   );
 }
 
+//CHART
+import { useEffect, useState } from 'react';
+import { Line } from 'react-chartjs-2';
+
+const BinaryChart = ({ binary1, binary2 }) => {
+  const [chartData, setChartData] = useState({
+    labels: Array.from({ length: 17 }, (_, index) => index + 1),
+    datasets: [
+      {
+        label: 'Binary 1',
+        data: binary1.split('').map(Number),
+        borderColor: 'rgba(75, 192, 192, 1)',
+        fill: false,
+        tension: 0.1,
+      },
+      {
+        label: 'Binary 2',
+        data: binary2.split('').map(Number),
+        borderColor: 'rgba(192, 75, 192, 1)',
+        fill: false,
+        tension: 0.1,
+      },
+    ],
+  });
+
+  useEffect(() => {
+    // Combine both binary numbers and display only the first 17 bits
+    const combinedBinary = (binary1 + binary2).substring(0, 17);
+    setChartData((prevChartData) => ({
+      ...prevChartData,
+      datasets: [
+        {
+          ...prevChartData.datasets[0],
+          data: combinedBinary.split('').map(Number),
+        },
+        ...prevChartData.datasets.slice(1),
+      ],
+    }));
+  }, [binary1, binary2]);
+
+  return (
+    <div>
+      <h2>Binary Chart</h2>
+      <Line
+        data={chartData}
+        options={{
+          scales: {
+            x: {
+              display: true,
+              title: {
+                display: true,
+                text: 'Bit Position',
+              },
+            },
+            y: {
+              display: true,
+              title: {
+                display: true,
+                text: 'Value',
+              },
+              ticks: {
+                stepSize: 1,
+              },
+            },
+          },
+        }}
+      />
+    </div>
+  );
+};
+
+export default BinaryChart;
+
+
 
 
 
