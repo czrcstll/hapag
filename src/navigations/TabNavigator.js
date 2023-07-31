@@ -641,6 +641,81 @@ The AudioFileButtons component will render input fields for id, data1, and data2
 
 //displaying table
 
+create a page where data from the offline MongoDB database is displayed along with a search button and arrow keys file checker, follow these steps:
+
+Create a new page to display the data.
+Implement a function to fetch data from the database and store it in the component state.
+Implement functions to handle search functionality and arrow key file checker.
+Render the data along with search input, search button, and arrow key controls.
+Here's an example of how you can achieve this:
+
+// pages/dataPage.js
+
+import { useState, useEffect } from 'react';
+
+const DataPage = () => {
+  const [audioFiles, setAudioFiles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    // Function to fetch data from the database and store it in the state.
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/api/audiofiles');
+        if (response.ok) {
+          const data = await response.json();
+          setAudioFiles(data);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Function to handle search functionality.
+  const handleSearch = () => {
+    // Implement search functionality based on the searchTerm state.
+    // Filter the audioFiles array based on the search term, and update the display accordingly.
+  };
+
+  // Function to handle arrow key file checker.
+  const handleArrowKeys = (e) => {
+    // Implement arrow key functionality to navigate through the audioFiles array.
+    // Update the currentIndex state to control the displayed file.
+  };
+
+  return (
+    <div>
+      <h1>Audio Files</h1>
+      <div>
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button onClick={handleSearch}>Search</button>
+      </div>
+      <div>
+        {/* Display the data from the database */}
+        {/* Implement arrow key file checker with currentIndex */}
+      </div>
+    </div>
+  );
+};
+
+export default DataPage;
+
+
+To integrate this page into your Next.js app, you can add it to your pages directory, and then set up navigation to this page through your app's routing system.
+
+The DataPage component will display the audio files retrieved from the offline MongoDB database. You can implement the search functionality and arrow key file checker based on your specific use case. When you type in the search input and click the "Search" button, it should filter the displayed audio files based on the search term. The arrow key file checker should allow you to navigate through the displayed files using arrow keys.
+
+Remember to customize the search functionality and arrow key file checker to suit your specific database schema and requirements. Additionally, consider adding error handling, loading states, and other improvements to enhance the user experience.
+
 
 
 
