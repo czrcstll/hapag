@@ -372,6 +372,26 @@ npm install react-chartjs-2 chart.js
 
 npm install next react react-dom prisma @prisma/client
 
+//PRISMA
+
+Sure! Let's create a Next.js app with CRUD operations using Prisma for a model with id, data1, and data2 fields.
+
+Set up a new Next.js app and install the required dependencies:
+
+npx create-next-app prisma-crud-app
+cd prisma-crud-app
+npm install @prisma/client
+
+Create a new file called prisma.js in the root of your project with the following content:
+
+// prisma.js
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+export default prisma;
+
+
 
 
 
