@@ -485,6 +485,71 @@ Replace yourModelName with the actual name of your Prisma model in both prisma.j
 Run the app:
 
 
+//
+Creating a complete CRUD (Create, Read, Update, Delete) for an offline MongoDB database in a Next.js app requires several steps. Below is a high-level overview of the process:
+
+Set up Next.js project:
+Create a new Next.js project using create-next-app.
+Install required dependencies, such as mongodb-memory-server, mongoose, and next-connect.
+Define the AudioFile model:
+Create a models folder and define the AudioFile model using Mongoose. It should have fields: id, data1, and data2.
+Create API routes:
+Create API routes using Next.js' built-in API routes feature. These routes will handle CRUD operations for the AudioFile model.
+Implement CRUD operations:
+In the API routes, implement functions to handle CRUD operations (create, read, update, delete) using Mongoose methods.
+Set up offline MongoDB database:
+Use mongodb-memory-server to set up an offline MongoDB instance. This will allow you to perform CRUD operations locally without a real MongoDB server.
+Test the CRUD operations:
+Test each CRUD operation (create, read, update, delete) using tools like Postman or curl to interact with the API endpoints.
+Here's a simplified example for the API routes:
+
+// pages/api/audiofiles.js
+
+import mongoose from 'mongoose';
+import nextConnect from 'next-connect';
+
+// Connect to the offline MongoDB database
+mongoose.connect('mongodb://localhost/my_offline_db', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const AudioFileSchema = new mongoose.Schema({
+  id: { type: String, required: true },
+  data1: { type: String, required: true },
+  data2: { type: String, required: true },
+});
+
+const AudioFile = mongoose.models.AudioFile || mongoose.model('AudioFile', AudioFileSchema);
+
+const handler = nextConnect();
+
+handler.get(async (req, res) => {
+  const audioFiles = await AudioFile.find();
+  res.json(audioFiles);
+});
+
+handler.post(async (req, res) => {
+  const { id, data1, data2 } = req.body;
+  const audioFile = new AudioFile({ id, data1, data2 });
+  await audioFile.save();
+  res.status(201).json(audioFile);
+});
+
+handler.put(async (req, res) => {
+  const { id, data1, data2 } = req.body;
+  const audioFile = await AudioFile.findOneAndUpdate({ id }, { data1, data2 });
+  res.json(audioFile);
+});
+
+handler.delete(async (req, res) => {
+  const { id } = req.body;
+  await AudioFile.findOneAndDelete({ id });
+  res.status(204).end();
+});
+
+export default handler;
+
 
 
 
