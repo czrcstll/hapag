@@ -618,6 +618,26 @@ const AudioFileButtons = () => {
 export default AudioFileButtons;
 
 
+Now, you can render this component in your desired page or component where you want to use the buttons:
+
+// pages/index.js (or any other page)
+
+import AudioFileButtons from '../components/AudioFileButtons';
+
+const HomePage = () => {
+  return (
+    <div>
+      <h1>Audio File Management</h1>
+      <AudioFileButtons />
+    </div>
+  );
+};
+
+export default HomePage;
+
+
+The AudioFileButtons component will render input fields for id, data1, and data2, and buttons to perform CRUD operations. When you click the "Create" button, it will trigger the handleCreate function, and the data from the input fields will be sent to the backend API for creating a new audio file in the offline MongoDB database. You can implement similar functions for the "Read," "Update," and "Delete" buttons as well.
+
 
 
 
