@@ -363,6 +363,12 @@ const BinaryChart = ({ binary1, binary2 }) => {
 export default BinaryChart;
 
 
+//for the chart dependency
+npx create-next-app binary-chart-app
+cd binary-chart-app
+npm install react-chartjs-2 chart.js
+
+
 
 
 
