@@ -639,7 +639,7 @@ export default HomePage;
 The AudioFileButtons component will render input fields for id, data1, and data2, and buttons to perform CRUD operations. When you click the "Create" button, it will trigger the handleCreate function, and the data from the input fields will be sent to the backend API for creating a new audio file in the offline MongoDB database. You can implement similar functions for the "Read," "Update," and "Delete" buttons as well.
 
 
-
+//displaying table
 
 
 
