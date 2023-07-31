@@ -550,6 +550,74 @@ handler.delete(async (req, res) => {
 
 export default handler;
 
+//
+To create buttons that interact with the offline MongoDB database in the Next.js app, you can follow these steps:
+
+Create a new component for the buttons.
+Implement functions to handle CRUD operations when the buttons are clicked.
+Render the buttons in your desired page or component.
+Here's an example of how you can create the buttons component:
+
+// components/AudioFileButtons.js
+
+import { useState } from 'react';
+
+const AudioFileButtons = () => {
+  const [audioFile, setAudioFile] = useState({ id: '', data1: '', data2: '' });
+
+  const handleCreate = async () => {
+    try {
+      const response = await fetch('/api/audiofiles', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(audioFile),
+      });
+      if (response.ok) {
+        alert('Audio file created successfully!');
+        setAudioFile({ id: '', data1: '', data2: '' });
+      } else {
+        alert('Failed to create audio file.');
+      }
+    } catch (error) {
+      alert('An error occurred while creating the audio file.');
+      console.error(error);
+    }
+  };
+
+  // Implement handleRead, handleUpdate, and handleDelete functions in a similar manner.
+
+  return (
+    <div>
+      <h2>Create Audio File</h2>
+      <input
+        type="text"
+        placeholder="ID"
+        value={audioFile.id}
+        onChange={(e) => setAudioFile({ ...audioFile, id: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Data 1"
+        value={audioFile.data1}
+        onChange={(e) => setAudioFile({ ...audioFile, data1: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Data 2"
+        value={audioFile.data2}
+        onChange={(e) => setAudioFile({ ...audioFile, data2: e.target.value })}
+      />
+      <button onClick={handleCreate}>Create</button>
+      {/* Implement other buttons (Read, Update, Delete) similarly */}
+    </div>
+  );
+};
+
+export default AudioFileButtons;
+
+
 
 
 
