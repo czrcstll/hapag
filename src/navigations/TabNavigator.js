@@ -392,6 +392,100 @@ const prisma = new PrismaClient();
 export default prisma;
 
 
+Create a new file called index.js in the pages directory of your Next.js app with the following content:
+
+// pages/index.js
+import { useState } from 'react';
+import prisma from '../prisma';
+
+const Home = ({ items }) => {
+  const [data1, setData1] = useState('');
+  const [data2, setData2] = useState('');
+  const [itemsList, setItemsList] = useState(items);
+
+  const handleCreate = async () => {
+    const newItem = await prisma.yourModelName.create({
+      data: {
+        data1,
+        data2,
+      },
+    });
+    setItemsList([...itemsList, newItem]);
+    setData1('');
+    setData2('');
+  };
+
+  const handleUpdate = async (id) => {
+    await prisma.yourModelName.update({
+      where: { id },
+      data: {
+        data1,
+        data2,
+      },
+    });
+    const updatedItems = itemsList.map((item) =>
+      item.id === id ? { ...item, data1, data2 } : item
+    );
+    setItemsList(updatedItems);
+  };
+
+  const handleDelete = async (id) => {
+    await prisma.yourModelName.delete({
+      where: { id },
+    });
+    const updatedItems = itemsList.filter((item) => item.id !== id);
+    setItemsList(updatedItems);
+  };
+
+  return (
+    <div>
+      <h1>Prisma CRUD Example</h1>
+      <div>
+        <input
+          type="text"
+          value={data1}
+          onChange={(e) => setData1(e.target.value)}
+          placeholder="Data 1"
+        />
+        <input
+          type="text"
+          value={data2}
+          onChange={(e) => setData2(e.target.value)}
+          placeholder="Data 2"
+        />
+        <button onClick={handleCreate}>Create</button>
+      </div>
+      <ul>
+        {itemsList.map((item) => (
+          <li key={item.id}>
+            ID: {item.id}, Data1: {item.data1}, Data2: {item.data2}
+            <button onClick={() => handleUpdate(item.id)}>Update</button>
+            <button onClick={() => handleDelete(item.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export async function getServerSideProps() {
+  const items = await prisma.yourModelName.findMany({
+    select: {
+      id: true,
+      data1: true,
+      data2: true,
+    },
+  });
+  return { props: { items } };
+}
+
+export default Home;
+
+Replace yourModelName with the actual name of your Prisma model in both prisma.js and index.js.
+Run the app:
+
+
+
 
 
 
