@@ -368,6 +368,10 @@ npx create-next-app binary-chart-app
 cd binary-chart-app
 npm install react-chartjs-2 chart.js
 
+//for prisma dependency
+
+npm install next react react-dom prisma @prisma/client
+
 
 
 
